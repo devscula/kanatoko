@@ -1,0 +1,18 @@
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sp-2);
+}
+
+/* Tighter than other buttons so the actions fit on one line on a 390px screen */
+.actions .action {
+  gap: 6px;
+  padding-inline: 10px;
+}
+
+@media print {
+  .actions {
+    display: none;
+  }
+}

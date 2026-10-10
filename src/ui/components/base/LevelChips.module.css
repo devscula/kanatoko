@@ -1,0 +1,77 @@
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--chip-gap);
+}
+
+.chip {
+  composes: frameRound from '../../styles/pixel.module.css';
+  --frame-border: var(--edge);
+  --frame-fill: var(--surface);
+  display: inline-grid;
+  place-items: center;
+  /* Only minimums, so that larger text widens the chip instead of clipping III into II */
+  min-width: var(--chip);
+  min-height: var(--chip);
+  margin: 0;
+  padding: 0 var(--sp-1);
+  white-space: nowrap;
+  border: 0;
+  background: none;
+  color: var(--ink);
+  font: var(--t-pixel-16);
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.chip:hover:not([aria-checked='true'], [aria-disabled='true']) {
+  --frame-fill: var(--surface-2);
+}
+
+.chip:active:not([aria-disabled='true']) {
+  transform: translateY(1px);
+}
+
+.chip[aria-checked='true'] {
+  --frame-border: var(--enchant);
+  --frame-fill: var(--enchant);
+  color: var(--on-ink);
+}
+
+.chip[aria-disabled='true'] {
+  --frame-border: var(--line);
+  --frame-fill: var(--surface);
+  color: var(--muted);
+}
+
+.chip[aria-disabled='true'][aria-checked='true'] {
+  --frame-border: var(--edge);
+  --frame-fill: var(--surface-2);
+  color: var(--ink);
+}
+
+/* Forced colors repaint the pseudo-element face and border as Canvas, which would cover the selected chip's Highlight,
+   so the border moves to the element. Without forced-color-adjust: none, a Canvas backplate hides the numeral. */
+@media (forced-colors: active) {
+  .chip {
+    border: var(--border) solid ButtonText;
+  }
+
+  .chip::before,
+  .chip::after {
+    display: none;
+  }
+
+  .chip[aria-checked='true'] {
+    forced-color-adjust: none;
+    border-color: Highlight;
+    background: Highlight;
+    color: HighlightText;
+  }
+
+  .chip[aria-disabled='true'][aria-checked='true'] {
+    border-color: GrayText;
+    background: GrayText;
+    color: Canvas;
+  }
+}

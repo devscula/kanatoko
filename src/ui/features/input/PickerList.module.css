@@ -1,0 +1,132 @@
+.sections {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.heading {
+  font: var(--t-body);
+  font-weight: 700;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  container: picker / inline-size;
+}
+
+.none {
+  color: var(--muted);
+  font: var(--t-body);
+}
+
+.row {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  min-height: var(--row-min);
+  padding: var(--sp-1) var(--sp-3) var(--sp-2) calc(var(--sp-3) + var(--rail));
+  border-top: var(--border) solid var(--line);
+}
+
+.list > .row:first-child,
+.groupList > .row:first-child {
+  border-top: 0;
+}
+
+.row[data-selected] {
+  background: var(--enchant-bg);
+}
+
+.row[data-selected]::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: var(--rail);
+  background: var(--enchant);
+}
+
+.check {
+  min-width: 0;
+}
+
+.names {
+  display: flex;
+  flex-direction: column;
+  padding-block: var(--sp-1);
+}
+
+.name {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 var(--sp-1);
+  font: var(--t-row);
+}
+
+.curse {
+  color: var(--danger);
+}
+
+.english {
+  color: var(--muted);
+  font: var(--t-caption);
+}
+
+.chips {
+  padding-left: calc(var(--sp-5) + var(--sp-3));
+}
+
+.row:not([data-selected]) > .chips {
+  display: none;
+}
+
+@container picker (min-width: 520px) {
+  .row {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--sp-3);
+  }
+
+  .row > .chips,
+  .row:not([data-selected]) > .chips {
+    display: flex;
+    flex-wrap: nowrap;
+    padding-left: 0;
+  }
+}
+
+/* Conflict groups */
+.group {
+  display: flex;
+  flex-direction: column;
+  margin: var(--sp-2) 0;
+  border-left: var(--border) dashed var(--edge);
+}
+
+.groupHeading {
+  padding: var(--sp-1) var(--sp-3);
+  color: var(--muted);
+  font: var(--t-small);
+  font-weight: 700;
+}
+
+.groupList {
+  display: flex;
+  flex-direction: column;
+}
+
+.list > .row + .group,
+.list > .group + .row {
+  border-top: 0;
+}
+
+/* Collapsed sections (curses, inapplicable) */
+.fold {
+  border-top: var(--border) solid var(--line);
+  padding-top: var(--sp-1);
+}

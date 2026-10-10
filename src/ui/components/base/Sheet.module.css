@@ -1,0 +1,237 @@
+.root {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-sheet);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.scrim {
+  position: absolute;
+  inset: 0;
+  background: var(--scrim);
+  opacity: 0;
+  transition: opacity var(--dur-scrim) linear;
+}
+
+.root[data-state='open'] .scrim {
+  opacity: 1;
+}
+
+.panel {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-height: var(--sheet-max-height);
+  max-height: 90dvh;
+  /* Toasts sit in front of sheets; Toast.tsx sets --toast-bottom so that no control ends up under one */
+  padding-bottom: var(--toast-bottom, 0px);
+  color: var(--ink);
+}
+
+/* The face and border are drawn on pseudo-elements so they do not clip the focus ring */
+.panel::before,
+.panel::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Bottom sheet below 600px */
+.panel::before {
+  inset: 0;
+  background: var(--edge);
+  clip-path: var(--notch-4-top);
+}
+
+.panel::after {
+  inset: var(--border) 0 0 0;
+  background: var(--surface);
+  clip-path: var(--notch-2-top);
+}
+
+.panel {
+  transform: translateY(calc(100% * var(--move)));
+  opacity: var(--move);
+  transition:
+    transform var(--dur-sheet) var(--ease-out),
+    opacity var(--dur-sheet) linear;
+}
+
+.root[data-state='open'] .panel {
+  transform: none;
+  opacity: 1;
+}
+
+.grip {
+  flex: none;
+  align-self: center;
+  width: var(--sp-6);
+  height: var(--sp-1);
+  margin-top: var(--sp-2);
+  background: var(--line);
+}
+
+.header {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-3);
+  padding: var(--sp-2) var(--sp-2) var(--sp-2) var(--card-pad);
+  border-bottom: var(--border) solid var(--line);
+}
+
+.header[data-hidden-title] {
+  justify-content: flex-end;
+  border-bottom: 0;
+  padding-block: 0;
+}
+
+.title {
+  font: var(--t-heading);
+}
+
+.title:focus {
+  outline: none;
+}
+
+.body {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: var(--sp-4) var(--card-pad) var(--sp-5);
+  /* Room for the focus ring when moving focus scrolls the body */
+  scroll-padding-block: var(--sp-2);
+}
+
+.body:focus-visible {
+  outline-offset: calc(-1 * var(--sp-1));
+}
+
+.footer {
+  display: flex;
+  flex: none;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: var(--sp-2);
+  padding: var(--sp-3) var(--card-pad) var(--sp-4);
+  border-top: var(--border) solid var(--line);
+}
+
+/* Centered dialog */
+@media (min-width: 600px) {
+  .root {
+    align-items: center;
+    padding: var(--sp-6) var(--gutter) max(var(--sp-6), var(--toast-bottom, 0px));
+  }
+
+  .panel {
+    width: min(var(--sheet-dialog), 100%);
+    max-height: 100%;
+    padding-bottom: 0;
+    transform: none;
+    opacity: 0;
+    transition: opacity var(--dur-dialog) linear;
+  }
+
+  .root[data-width='narrow'] .panel {
+    width: min(var(--sheet-dialog-narrow), 100%);
+  }
+
+  .panel::before {
+    clip-path: var(--notch-4);
+  }
+
+  .panel::after {
+    inset: var(--border);
+    clip-path: var(--notch-2);
+  }
+
+  .grip {
+    display: none;
+  }
+
+  .header {
+    padding-top: var(--sp-3);
+  }
+}
+
+/* Side panel */
+@media (min-width: 880px) {
+  .root[data-variant='side'] {
+    align-items: stretch;
+    justify-content: flex-end;
+    padding: 0;
+  }
+
+  .root[data-variant='side'] .panel {
+    width: var(--sheet-panel);
+    max-height: none;
+    height: 100%;
+    opacity: var(--move);
+    transform: translateX(calc(100% * var(--move)));
+    transition:
+      transform var(--dur-sheet) var(--ease-out),
+      opacity var(--dur-sheet) linear;
+  }
+
+  .root[data-variant='side'][data-state='open'] .panel {
+    transform: none;
+    opacity: 1;
+  }
+
+  /* The full-height panel can overlap a toast, so let the end of the body scroll clear of it */
+  .root[data-variant='side'] .body {
+    padding-bottom: calc(var(--sp-5) + var(--toast-bottom, 0px));
+  }
+
+  .root[data-variant='side'] .panel::before {
+    clip-path: none;
+  }
+
+  .root[data-variant='side'] .panel::after {
+    inset: 0 0 0 var(--border);
+    clip-path: none;
+  }
+}
+
+/* On very short viewports (320x256 at 400% zoom) the header and footer would leave almost no room for the body, so the
+   whole panel scrolls as one (WCAG 1.4.10). The pseudo-element face would scroll away, so the element draws its own
+   background and border. Phones in landscape are at least 320px tall and do not match. */
+@media (max-height: 300px) {
+  .panel {
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    background: var(--surface);
+    border-top: var(--border) solid var(--edge);
+  }
+
+  .panel::before,
+  .panel::after {
+    display: none;
+  }
+
+  .body {
+    flex: none;
+    min-height: auto;
+    overflow: visible;
+  }
+
+  @media (min-width: 600px) {
+    .panel {
+      border: var(--border) solid var(--edge);
+    }
+  }
+}
+
+@media print {
+  .root {
+    display: none;
+  }
+}

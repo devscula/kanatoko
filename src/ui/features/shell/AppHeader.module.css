@@ -1,0 +1,111 @@
+.header {
+  background: var(--surface);
+  border-bottom: var(--border) solid var(--line);
+}
+
+.inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-3);
+  max-width: var(--workbench-max);
+  min-height: calc(var(--target) + var(--sp-4));
+  margin: 0 auto;
+  padding: var(--sp-2) var(--gutter);
+}
+
+.brand {
+  display: flex;
+  flex: 1 1 8em;
+  align-items: center;
+  gap: var(--sp-2);
+  font: var(--t-small);
+  font-weight: 700;
+}
+
+/* At 320px the English edition dropdown (sized for "Bedrock") leaves the name a few pixels short */
+@media (max-width: 359px) {
+  .brand {
+    gap: var(--sp-1);
+  }
+}
+
+@media (min-width: 360px) {
+  .brand {
+    font-size: var(--fs-body);
+    line-height: var(--lh-body);
+  }
+}
+
+.logo {
+  flex: none;
+}
+
+/* Never break the name; the controls wrap to the next line instead */
+.name {
+  white-space: nowrap;
+}
+
+.controls {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: var(--sp-2);
+  margin-inline-start: auto;
+}
+
+.history {
+  display: flex;
+  gap: var(--sp-1);
+}
+
+.historyButton {
+  font: var(--t-small);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/* Without an underline, a filled background shows the hover, as on the icon-only buttons */
+.historyButton:hover:not(:disabled)::after {
+  inset: 0;
+  background: var(--surface-2);
+  border-radius: var(--radius-btn);
+}
+
+@media (pointer: fine) {
+  .historyButton {
+    padding-inline: var(--sp-2);
+  }
+}
+
+@media (min-width: 1024px) {
+  .brand {
+    font-size: var(--fs-row);
+    line-height: var(--lh-row);
+  }
+
+  .controls {
+    gap: var(--sp-3);
+  }
+}
+
+@media print {
+  .controls {
+    display: none;
+  }
+}
+
+.lang {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-1);
+}
+
+@media (pointer: fine) and (min-width: 880px) {
+  .inner {
+    min-height: 48px;
+    padding-block: var(--sp-1);
+    padding-inline: 24px;
+  }
+}

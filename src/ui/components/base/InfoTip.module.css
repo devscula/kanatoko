@@ -1,0 +1,48 @@
+/* The negative margin keeps the hit target from making the line taller */
+.info {
+  border-radius: var(--radius-pill);
+  position: relative;
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  width: var(--target);
+  height: var(--target);
+  margin: calc((24px - var(--target)) / 2);
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--muted);
+  vertical-align: middle;
+}
+
+@media (pointer: fine) {
+  .info {
+    width: var(--target-fine);
+    height: var(--target-fine);
+    margin: calc((24px - var(--target-fine)) / 2);
+  }
+}
+
+.info:hover,
+.info:focus-visible,
+.info[aria-expanded='true'] {
+  color: var(--ink);
+}
+
+.info:focus-visible {
+  outline: 2px solid var(--focus);
+}
+
+@media print {
+  .info {
+    display: none;
+  }
+}
+
+.text {
+  max-width: 20rem;
+  margin: 0;
+  padding: var(--sp-1) var(--sp-2);
+  color: var(--tip-text);
+  font: var(--t-small);
+}

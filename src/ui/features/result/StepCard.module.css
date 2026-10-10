@@ -1,0 +1,298 @@
+.card {
+  composes: frame4 from '../../styles/pixel.module.css';
+  --frame-fill: var(--surface);
+  --frame-border: var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  padding: var(--card-pad);
+}
+
+.card[data-over] {
+  --frame-border: var(--danger);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    'head cost'
+    'slots slots'
+    'details details'
+    'actions actions';
+  gap: var(--sp-3);
+  align-items: start;
+}
+
+.head {
+  grid-area: head;
+  min-width: 0;
+}
+
+.heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--sp-1) var(--sp-2);
+  font: var(--t-heading);
+  word-break: normal;
+}
+
+.stepNo {
+  font: var(--t-pixel-32);
+  font-variant-numeric: tabular-nums;
+}
+
+.costArea {
+  grid-area: cost;
+}
+
+.cost {
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-end;
+  gap: var(--sp-1);
+  color: var(--xp);
+  white-space: nowrap;
+}
+
+.costValue {
+  font: var(--t-pixel-32);
+  font-variant-numeric: tabular-nums;
+}
+
+.unit {
+  color: var(--muted);
+  font: var(--t-small);
+}
+
+.card[data-over] .cost {
+  color: var(--danger);
+}
+
+.costWarn {
+  align-self: center;
+}
+
+.slots {
+  grid-area: slots;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--sp-2);
+  min-width: 0;
+}
+
+.slotCell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-1);
+  min-width: 0;
+}
+
+.slotBox {
+  position: relative;
+  display: block;
+  overflow: hidden;
+}
+
+.caption {
+  color: var(--muted);
+  font: var(--t-caption);
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* Centered on the slots */
+.joiner {
+  flex: none;
+  margin-top: calc(var(--slot-card) / 2 - 12px);
+  color: var(--muted);
+}
+
+.details {
+  grid-area: details;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  min-width: 0;
+}
+
+.labels {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: var(--sp-1) var(--sp-3);
+  font: var(--t-row);
+}
+
+.labelRow {
+  display: contents;
+}
+
+.labelRow dt {
+  color: var(--muted);
+  font: var(--t-small);
+  font-weight: 700;
+  line-height: var(--lh-row);
+  white-space: nowrap;
+}
+
+.labelRow dd {
+  margin: 0;
+  min-width: 0;
+}
+
+.note,
+.overCap {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-2);
+  font: var(--t-small);
+  max-width: var(--measure);
+}
+
+.overCap {
+  color: var(--danger);
+  font-weight: 700;
+}
+
+.noteIcon {
+  flex: none;
+  margin-top: 3px;
+}
+
+.match {
+  color: var(--muted);
+  font: var(--t-small);
+  max-width: var(--measure);
+}
+
+.actions {
+  grid-area: actions;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sp-2);
+}
+
+.disclosure {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-1);
+  min-height: var(--target);
+  margin: 0;
+  padding: 0 var(--sp-1);
+  border: 0;
+  background: none;
+  color: var(--ink);
+  font: var(--t-body);
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.25em;
+}
+
+.disclosure:hover {
+  text-decoration-thickness: 2px;
+}
+
+.chevron {
+  transition: transform var(--dur-disclose) steps(2, end);
+}
+
+.disclosure[aria-expanded='true'] .chevron {
+  transform: rotate(90deg);
+}
+
+/* Takes a full row under its toggle and pushes the other actions below */
+.breakdown {
+  flex: 1 0 100%;
+  order: 0;
+}
+
+.breakdown[hidden] {
+  display: none;
+}
+
+.card[data-stale] .cost,
+.card[data-stale] .heading,
+.card[data-stale] .labels {
+  color: var(--muted);
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: 5.5rem minmax(0, 1fr) auto;
+    grid-template-areas:
+      'head slots cost'
+      '. details details'
+      '. actions actions';
+    column-gap: var(--sp-4);
+  }
+}
+
+/* Highlights a card reached from the tree */
+:global([data-revealed]) > .card::after {
+  animation: reveal var(--reveal-duration) linear;
+}
+
+@keyframes reveal {
+  0%,
+  85% {
+    background-color: var(--enchant-bg);
+  }
+
+  100% {
+    background-color: var(--frame-fill);
+  }
+}
+
+/* The in-app motion setting, when set, overrides the OS preference */
+@media (prefers-reduced-motion: reduce) {
+  :global(html:not([data-motion='full'])) :global([data-revealed]) > .card::after {
+    animation-timing-function: steps(1, end);
+  }
+}
+
+:global(html[data-motion='reduce']) :global([data-revealed]) > .card::after {
+  animation-timing-function: steps(1, end);
+}
+
+@media (forced-colors: active) {
+  .card {
+    border: var(--border) solid CanvasText;
+  }
+}
+
+/* Printed as a checklist */
+@media print {
+  .card {
+    break-inside: avoid;
+    padding: var(--sp-2) 0;
+  }
+
+  .card::before,
+  .card::after,
+  .slots,
+  .actions,
+  .match {
+    display: none;
+  }
+
+  .heading::before {
+    content: '□ ';
+  }
+
+  .stepNo,
+  .costValue {
+    font: inherit;
+    font-weight: 700;
+  }
+
+  .cost,
+  .labels,
+  .heading {
+    color: #000;
+  }
+}

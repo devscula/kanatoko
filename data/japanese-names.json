@@ -1,0 +1,1398 @@
+{
+  "meta": {
+    "java_version": "26.3 (released 2026-09-15); ja_jp.json has the same hash in 26.4-snapshot-1",
+    "ja_jp_json": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+    "ja_jp_sha1": "93054df00419a33c4336b14c05c8896177556621",
+    "en_us_and_data": "https://piston-data.mojang.com/v1/objects/e877b6a07acd633fb3bb475002175cec036e7b87/client.jar (assets/minecraft/lang/en_us.json, data/minecraft/enchantment/*.json)",
+    "bedrock_lang": "https://github.com/Mojang/bedrock-samples/blob/46ba6ea985fb5a92d79a9419198f10dda14c199d/resource_pack/texts/ja_JP.lang (bedrock-samples 1.26.50.4, commit 2026-09-16)",
+    "anvil_cost_note": "anvil_cost is the item multiplier. The book multiplier is max(1, floor(anvil_cost / 2)). The wikis list Loyalty as 1 / 1, but its anvil_cost in the game data is 2.",
+    "enchantment_count": 43
+  },
+  "enchantments": {
+    "aqua_affinity": {
+      "ja": "水中採掘",
+      "en": "Aqua Affinity",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "lang_key": "enchantment.minecraft.aqua_affinity",
+      "wiki": "https://ja.minecraft.wiki/w/%E6%B0%B4%E4%B8%AD%E6%8E%A1%E6%8E%98",
+      "max_level": 1,
+      "anvil_cost": 4
+    },
+    "bane_of_arthropods": {
+      "ja": "虫特効",
+      "en": "Bane of Arthropods",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "lang_key": "enchantment.minecraft.bane_of_arthropods",
+      "wiki": "https://ja.minecraft.wiki/w/%E8%99%AB%E7%89%B9%E5%8A%B9",
+      "max_level": 5,
+      "anvil_cost": 2
+    },
+    "binding_curse": {
+      "ja": "束縛の呪い",
+      "en": "Curse of Binding",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "lang_key": "enchantment.minecraft.binding_curse",
+      "wiki": "https://ja.minecraft.wiki/w/%E6%9D%9F%E7%B8%9B%E3%81%AE%E5%91%AA%E3%81%84",
+      "max_level": 1,
+      "anvil_cost": 8
+    },
+    "blast_protection": {
+      "ja": "爆発耐性",
+      "en": "Blast Protection",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "lang_key": "enchantment.minecraft.blast_protection",
+      "wiki": "https://ja.minecraft.wiki/w/%E7%88%86%E7%99%BA%E8%80%90%E6%80%A7",
+      "max_level": 4,
+      "anvil_cost": 4
+    },
+    "breach": {
+      "ja": "防具貫通",
+      "en": "Breach",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "lang_key": "enchantment.minecraft.breach",
+      "wiki": "https://ja.minecraft.wiki/w/%E9%98%B2%E5%85%B7%E8%B2%AB%E9%80%9A",
+      "max_level": 4,
+      "anvil_cost": 4,
+      "ja_bedrock": "違反",
+      "bedrock_lang_key": "enchantment.heavy_weapon.breach",
+      "bedrock_source": "https://github.com/Mojang/bedrock-samples/blob/46ba6ea985fb5a92d79a9419198f10dda14c199d/resource_pack/texts/ja_JP.lang"
+    },
+    "channeling": {
+      "ja": "召雷",
+      "en": "Channeling",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "lang_key": "enchantment.minecraft.channeling",
+      "wiki": "https://ja.minecraft.wiki/w/%E5%8F%AC%E9%9B%B7",
+      "max_level": 1,
+      "anvil_cost": 8
+    },
+    "density": {
+      "ja": "重撃",
+      "en": "Density",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "lang_key": "enchantment.minecraft.density",
+      "wiki": "https://ja.minecraft.wiki/w/%E9%87%8D%E6%92%83",
+      "max_level": 5,
+      "anvil_cost": 2,
+      "ja_bedrock": "密度",
+      "bedrock_lang_key": "enchantment.heavy_weapon.density",
+      "bedrock_source": "https://github.com/Mojang/bedrock-samples/blob/46ba6ea985fb5a92d79a9419198f10dda14c199d/resource_pack/texts/ja_JP.lang"
+    },
+    "depth_strider": {
+      "ja": "水中歩行",
+      "en": "Depth Strider",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "lang_key": "enchantment.minecraft.depth_strider",
+      "wiki": "https://ja.minecraft.wiki/w/%E6%B0%B4%E4%B8%AD%E6%AD%A9%E8%A1%8C",
+      "max_level": 3,
+      "anvil_cost": 4
+    },
+    "efficiency": {
+      "ja": "効率強化",
+      "en": "Efficiency",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "lang_key": "enchantment.minecraft.efficiency",
+      "wiki": "https://ja.minecraft.wiki/w/%E5%8A%B9%E7%8E%87%E5%BC%B7%E5%8C%96",
+      "max_level": 5,
+      "anvil_cost": 1
+    },
+    "feather_falling": {
+      "ja": "落下耐性",
+      "en": "Feather Falling",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "lang_key": "enchantment.minecraft.feather_falling",
+      "wiki": "https://ja.minecraft.wiki/w/%E8%90%BD%E4%B8%8B%E8%80%90%E6%80%A7",
+      "max_level": 4,
+      "anvil_cost": 2
+    },
+    "fire_aspect": {
+      "ja": "火属性",
+      "en": "Fire Aspect",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "lang_key": "enchantment.minecraft.fire_aspect",
+      "wiki": "https://ja.minecraft.wiki/w/%E7%81%AB%E5%B1%9E%E6%80%A7",
+      "max_level": 2,
+      "anvil_cost": 4
+    },
+    "fire_protection": {
+      "ja": "火炎耐性",
+      "en": "Fire Protection",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "lang_key": "enchantment.minecraft.fire_protection",
+      "wiki": "https://ja.minecraft.wiki/w/%E7%81%AB%E7%82%8E%E8%80%90%E6%80%A7%20%28%E3%82%A8%E3%83%B3%E3%83%81%E3%83%A3%E3%83%B3%E3%83%88%29",
+      "max_level": 4,
+      "anvil_cost": 2
+    },
+    "flame": {
+      "ja": "フレイム",
+      "en": "Flame",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "lang_key": "enchantment.minecraft.flame",
+      "wiki": "https://ja.minecraft.wiki/w/%E3%83%95%E3%83%AC%E3%82%A4%E3%83%A0",
+      "max_level": 1,
+      "anvil_cost": 4
+    },
+    "fortune": {
+      "ja": "幸運",
+      "en": "Fortune",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "lang_key": "enchantment.minecraft.fortune",
+      "wiki": "https://ja.minecraft.wiki/w/%E5%B9%B8%E9%81%8B%20%28%E3%82%A8%E3%83%B3%E3%83%81%E3%83%A3%E3%83%B3%E3%83%88%29",
+      "max_level": 3,
+      "anvil_cost": 4
+    },
+    "frost_walker": {
+      "ja": "氷渡り",
+      "en": "Frost Walker",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "lang_key": "enchantment.minecraft.frost_walker",
+      "wiki": "https://ja.minecraft.wiki/w/%E6%B0%B7%E6%B8%A1%E3%82%8A",
+      "max_level": 2,
+      "anvil_cost": 4
+    },
+    "impaling": {
+      "ja": "水生特効",
+      "en": "Impaling",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "lang_key": "enchantment.minecraft.impaling",
+      "wiki": "https://ja.minecraft.wiki/w/%E6%B0%B4%E7%94%9F%E7%89%B9%E5%8A%B9",
+      "max_level": 5,
+      "anvil_cost": 4
+    },
+    "infinity": {
+      "ja": "無限",
+      "en": "Infinity",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "lang_key": "enchantment.minecraft.infinity",
+      "wiki": "https://ja.minecraft.wiki/w/%E7%84%A1%E9%99%90",
+      "max_level": 1,
+      "anvil_cost": 8
+    },
+    "knockback": {
+      "ja": "ノックバック",
+      "en": "Knockback",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "lang_key": "enchantment.minecraft.knockback",
+      "wiki": "https://ja.minecraft.wiki/w/%E3%83%8E%E3%83%83%E3%82%AF%E3%83%90%E3%83%83%E3%82%AF",
+      "max_level": 2,
+      "anvil_cost": 2
+    },
+    "looting": {
+      "ja": "ドロップ増加",
+      "en": "Looting",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "lang_key": "enchantment.minecraft.looting",
+      "wiki": "https://ja.minecraft.wiki/w/%E3%83%89%E3%83%AD%E3%83%83%E3%83%97%E5%A2%97%E5%8A%A0",
+      "max_level": 3,
+      "anvil_cost": 4
+    },
+    "loyalty": {
+      "ja": "忠誠",
+      "en": "Loyalty",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "lang_key": "enchantment.minecraft.loyalty",
+      "wiki": "https://ja.minecraft.wiki/w/%E5%BF%A0%E8%AA%A0",
+      "max_level": 3,
+      "anvil_cost": 2
+    },
+    "luck_of_the_sea": {
+      "ja": "宝釣り",
+      "en": "Luck of the Sea",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "lang_key": "enchantment.minecraft.luck_of_the_sea",
+      "wiki": "https://ja.minecraft.wiki/w/%E5%AE%9D%E9%87%A3%E3%82%8A",
+      "max_level": 3,
+      "anvil_cost": 4
+    },
+    "lunge": {
+      "ja": "突進",
+      "en": "Lunge",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "lang_key": "enchantment.minecraft.lunge",
+      "wiki": "https://ja.minecraft.wiki/w/%E7%AA%81%E9%80%B2",
+      "max_level": 3,
+      "anvil_cost": 2,
+      "note": "Added in Java 1.21.11 (spear only)."
+    },
+    "lure": {
+      "ja": "入れ食い",
+      "en": "Lure",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "lang_key": "enchantment.minecraft.lure",
+      "wiki": "https://ja.minecraft.wiki/w/%E5%85%A5%E3%82%8C%E9%A3%9F%E3%81%84",
+      "max_level": 3,
+      "anvil_cost": 4
+    },
+    "mending": {
+      "ja": "修繕",
+      "en": "Mending",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "lang_key": "enchantment.minecraft.mending",
+      "wiki": "https://ja.minecraft.wiki/w/%E4%BF%AE%E7%B9%95",
+      "max_level": 1,
+      "anvil_cost": 4
+    },
+    "multishot": {
+      "ja": "拡散",
+      "en": "Multishot",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "lang_key": "enchantment.minecraft.multishot",
+      "wiki": "https://ja.minecraft.wiki/w/%E6%8B%A1%E6%95%A3",
+      "max_level": 1,
+      "anvil_cost": 4
+    },
+    "piercing": {
+      "ja": "貫通",
+      "en": "Piercing",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "lang_key": "enchantment.minecraft.piercing",
+      "wiki": "https://ja.minecraft.wiki/w/%E8%B2%AB%E9%80%9A",
+      "max_level": 4,
+      "anvil_cost": 1
+    },
+    "power": {
+      "ja": "射撃ダメージ増加",
+      "en": "Power",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "lang_key": "enchantment.minecraft.power",
+      "wiki": "https://ja.minecraft.wiki/w/%E5%B0%84%E6%92%83%E3%83%80%E3%83%A1%E3%83%BC%E3%82%B8%E5%A2%97%E5%8A%A0",
+      "max_level": 5,
+      "anvil_cost": 1
+    },
+    "projectile_protection": {
+      "ja": "飛び道具耐性",
+      "en": "Projectile Protection",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "lang_key": "enchantment.minecraft.projectile_protection",
+      "wiki": "https://ja.minecraft.wiki/w/%E9%A3%9B%E3%81%B3%E9%81%93%E5%85%B7%E8%80%90%E6%80%A7",
+      "max_level": 4,
+      "anvil_cost": 2
+    },
+    "protection": {
+      "ja": "ダメージ軽減",
+      "en": "Protection",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "lang_key": "enchantment.minecraft.protection",
+      "wiki": "https://ja.minecraft.wiki/w/%E3%83%80%E3%83%A1%E3%83%BC%E3%82%B8%E8%BB%BD%E6%B8%9B",
+      "max_level": 4,
+      "anvil_cost": 1
+    },
+    "punch": {
+      "ja": "パンチ",
+      "en": "Punch",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "lang_key": "enchantment.minecraft.punch",
+      "wiki": "https://ja.minecraft.wiki/w/%E3%83%91%E3%83%B3%E3%83%81",
+      "max_level": 2,
+      "anvil_cost": 4
+    },
+    "quick_charge": {
+      "ja": "高速装填",
+      "en": "Quick Charge",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "lang_key": "enchantment.minecraft.quick_charge",
+      "wiki": "https://ja.minecraft.wiki/w/%E9%AB%98%E9%80%9F%E8%A3%85%E5%A1%AB",
+      "max_level": 3,
+      "anvil_cost": 2
+    },
+    "respiration": {
+      "ja": "水中呼吸",
+      "en": "Respiration",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "lang_key": "enchantment.minecraft.respiration",
+      "wiki": "https://ja.minecraft.wiki/w/%E6%B0%B4%E4%B8%AD%E5%91%BC%E5%90%B8%20%28%E3%82%A8%E3%83%B3%E3%83%81%E3%83%A3%E3%83%B3%E3%83%88%29",
+      "max_level": 3,
+      "anvil_cost": 4
+    },
+    "riptide": {
+      "ja": "激流",
+      "en": "Riptide",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "lang_key": "enchantment.minecraft.riptide",
+      "wiki": "https://ja.minecraft.wiki/w/%E6%BF%80%E6%B5%81",
+      "max_level": 3,
+      "anvil_cost": 4
+    },
+    "sharpness": {
+      "ja": "ダメージ増加",
+      "en": "Sharpness",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "lang_key": "enchantment.minecraft.sharpness",
+      "wiki": "https://ja.minecraft.wiki/w/%E3%83%80%E3%83%A1%E3%83%BC%E3%82%B8%E5%A2%97%E5%8A%A0",
+      "max_level": 5,
+      "anvil_cost": 1
+    },
+    "silk_touch": {
+      "ja": "シルクタッチ",
+      "en": "Silk Touch",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "lang_key": "enchantment.minecraft.silk_touch",
+      "wiki": "https://ja.minecraft.wiki/w/%E3%82%B7%E3%83%AB%E3%82%AF%E3%82%BF%E3%83%83%E3%83%81",
+      "max_level": 1,
+      "anvil_cost": 8
+    },
+    "smite": {
+      "ja": "アンデッド特効",
+      "en": "Smite",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "lang_key": "enchantment.minecraft.smite",
+      "wiki": "https://ja.minecraft.wiki/w/%E3%82%A2%E3%83%B3%E3%83%87%E3%83%83%E3%83%89%E7%89%B9%E5%8A%B9",
+      "max_level": 5,
+      "anvil_cost": 2
+    },
+    "soul_speed": {
+      "ja": "ソウルスピード",
+      "en": "Soul Speed",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "lang_key": "enchantment.minecraft.soul_speed",
+      "wiki": "https://ja.minecraft.wiki/w/%E3%82%BD%E3%82%A6%E3%83%AB%E3%82%B9%E3%83%94%E3%83%BC%E3%83%89",
+      "max_level": 3,
+      "anvil_cost": 8
+    },
+    "sweeping_edge": {
+      "ja": "範囲ダメージ増加",
+      "en": "Sweeping Edge",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "lang_key": "enchantment.minecraft.sweeping_edge",
+      "wiki": "https://ja.minecraft.wiki/w/%E7%AF%84%E5%9B%B2%E3%83%80%E3%83%A1%E3%83%BC%E3%82%B8%E5%A2%97%E5%8A%A0",
+      "max_level": 3,
+      "anvil_cost": 4,
+      "ja_bedrock": null,
+      "bedrock_note": "Java Edition only; it does not exist in Bedrock Edition."
+    },
+    "swift_sneak": {
+      "ja": "スニーク速度上昇",
+      "en": "Swift Sneak",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "lang_key": "enchantment.minecraft.swift_sneak",
+      "wiki": "https://ja.minecraft.wiki/w/%E3%82%B9%E3%83%8B%E3%83%BC%E3%82%AF%E9%80%9F%E5%BA%A6%E4%B8%8A%E6%98%87",
+      "max_level": 3,
+      "anvil_cost": 8,
+      "ja_bedrock": "しのび足速度上昇",
+      "bedrock_lang_key": "enchantment.swift_sneak",
+      "bedrock_source": "https://github.com/Mojang/bedrock-samples/blob/46ba6ea985fb5a92d79a9419198f10dda14c199d/resource_pack/texts/ja_JP.lang"
+    },
+    "thorns": {
+      "ja": "棘の鎧",
+      "en": "Thorns",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "lang_key": "enchantment.minecraft.thorns",
+      "wiki": "https://ja.minecraft.wiki/w/%E6%A3%98%E3%81%AE%E9%8E%A7",
+      "max_level": 3,
+      "anvil_cost": 8
+    },
+    "unbreaking": {
+      "ja": "耐久力",
+      "en": "Unbreaking",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "lang_key": "enchantment.minecraft.unbreaking",
+      "wiki": "https://ja.minecraft.wiki/w/%E8%80%90%E4%B9%85%E5%8A%9B",
+      "max_level": 3,
+      "anvil_cost": 2
+    },
+    "vanishing_curse": {
+      "ja": "消滅の呪い",
+      "en": "Curse of Vanishing",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "lang_key": "enchantment.minecraft.vanishing_curse",
+      "wiki": "https://ja.minecraft.wiki/w/%E6%B6%88%E6%BB%85%E3%81%AE%E5%91%AA%E3%81%84",
+      "max_level": 1,
+      "anvil_cost": 8
+    },
+    "wind_burst": {
+      "ja": "ウィンドバースト",
+      "en": "Wind Burst",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "lang_key": "enchantment.minecraft.wind_burst",
+      "wiki": "https://ja.minecraft.wiki/w/%E3%82%A6%E3%82%A3%E3%83%B3%E3%83%89%E3%83%90%E3%83%BC%E3%82%B9%E3%83%88",
+      "max_level": 3,
+      "anvil_cost": 4,
+      "ja_bedrock": "爆風",
+      "bedrock_lang_key": "enchantment.heavy_weapon.windburst",
+      "bedrock_source": "https://github.com/Mojang/bedrock-samples/blob/46ba6ea985fb5a92d79a9419198f10dda14c199d/resource_pack/texts/ja_JP.lang"
+    }
+  },
+  "items": {
+    "helmet": {
+      "ja": "ヘルメット",
+      "en": "Helmet",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "wiki": "https://ja.minecraft.wiki/w/%E3%83%98%E3%83%AB%E3%83%A1%E3%83%83%E3%83%88",
+      "ja_ingame_pattern": "<material>のヘルメット",
+      "variants": {
+        "leather_helmet": {
+          "ja": "革の帽子",
+          "en": "Leather Cap",
+          "lang_key": "item.minecraft.leather_helmet"
+        },
+        "copper_helmet": {
+          "ja": "銅のヘルメット",
+          "en": "Copper Helmet",
+          "lang_key": "item.minecraft.copper_helmet"
+        },
+        "chainmail_helmet": {
+          "ja": "チェーンのヘルメット",
+          "en": "Chainmail Helmet",
+          "lang_key": "item.minecraft.chainmail_helmet"
+        },
+        "iron_helmet": {
+          "ja": "鉄のヘルメット",
+          "en": "Iron Helmet",
+          "lang_key": "item.minecraft.iron_helmet"
+        },
+        "golden_helmet": {
+          "ja": "金のヘルメット",
+          "en": "Golden Helmet",
+          "lang_key": "item.minecraft.golden_helmet"
+        },
+        "diamond_helmet": {
+          "ja": "ダイヤモンドのヘルメット",
+          "en": "Diamond Helmet",
+          "lang_key": "item.minecraft.diamond_helmet"
+        },
+        "netherite_helmet": {
+          "ja": "ネザライトのヘルメット",
+          "en": "Netherite Helmet",
+          "lang_key": "item.minecraft.netherite_helmet"
+        }
+      },
+      "notes": "The generic name ヘルメット is the ja.minecraft.wiki article title, not a string in the game. Leather: 革の帽子. Chainmail in Bedrock Edition: チェーンメイルのヘルメット."
+    },
+    "chestplate": {
+      "ja": "チェストプレート",
+      "en": "Chestplate",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "wiki": "https://ja.minecraft.wiki/w/%E3%83%81%E3%82%A7%E3%82%B9%E3%83%88%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88",
+      "ja_ingame_pattern": "<material>のチェストプレート",
+      "variants": {
+        "leather_chestplate": {
+          "ja": "革の上着",
+          "en": "Leather Tunic",
+          "lang_key": "item.minecraft.leather_chestplate"
+        },
+        "copper_chestplate": {
+          "ja": "銅のチェストプレート",
+          "en": "Copper Chestplate",
+          "lang_key": "item.minecraft.copper_chestplate"
+        },
+        "chainmail_chestplate": {
+          "ja": "チェーンのチェストプレート",
+          "en": "Chainmail Chestplate",
+          "lang_key": "item.minecraft.chainmail_chestplate"
+        },
+        "iron_chestplate": {
+          "ja": "鉄のチェストプレート",
+          "en": "Iron Chestplate",
+          "lang_key": "item.minecraft.iron_chestplate"
+        },
+        "golden_chestplate": {
+          "ja": "金のチェストプレート",
+          "en": "Golden Chestplate",
+          "lang_key": "item.minecraft.golden_chestplate"
+        },
+        "diamond_chestplate": {
+          "ja": "ダイヤモンドのチェストプレート",
+          "en": "Diamond Chestplate",
+          "lang_key": "item.minecraft.diamond_chestplate"
+        },
+        "netherite_chestplate": {
+          "ja": "ネザライトのチェストプレート",
+          "en": "Netherite Chestplate",
+          "lang_key": "item.minecraft.netherite_chestplate"
+        }
+      },
+      "notes": "Leather: 革の上着. Chainmail in Bedrock Edition: チェーンメイルのチェストプレート."
+    },
+    "leggings": {
+      "ja": "レギンス",
+      "en": "Leggings",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "wiki": "https://ja.minecraft.wiki/w/%E3%83%AC%E3%82%AE%E3%83%B3%E3%82%B9",
+      "ja_ingame_pattern": "<material>のレギンス",
+      "variants": {
+        "leather_leggings": {
+          "ja": "革のズボン",
+          "en": "Leather Pants",
+          "lang_key": "item.minecraft.leather_leggings"
+        },
+        "copper_leggings": {
+          "ja": "銅のレギンス",
+          "en": "Copper Leggings",
+          "lang_key": "item.minecraft.copper_leggings"
+        },
+        "chainmail_leggings": {
+          "ja": "チェーンのレギンス",
+          "en": "Chainmail Leggings",
+          "lang_key": "item.minecraft.chainmail_leggings"
+        },
+        "iron_leggings": {
+          "ja": "鉄のレギンス",
+          "en": "Iron Leggings",
+          "lang_key": "item.minecraft.iron_leggings"
+        },
+        "golden_leggings": {
+          "ja": "金のレギンス",
+          "en": "Golden Leggings",
+          "lang_key": "item.minecraft.golden_leggings"
+        },
+        "diamond_leggings": {
+          "ja": "ダイヤモンドのレギンス",
+          "en": "Diamond Leggings",
+          "lang_key": "item.minecraft.diamond_leggings"
+        },
+        "netherite_leggings": {
+          "ja": "ネザライトのレギンス",
+          "en": "Netherite Leggings",
+          "lang_key": "item.minecraft.netherite_leggings"
+        }
+      },
+      "notes": "Leather: 革のズボン. Chainmail in Bedrock Edition: チェーンメイルのレギンス."
+    },
+    "boots": {
+      "ja": "ブーツ",
+      "en": "Boots",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "wiki": "https://ja.minecraft.wiki/w/%E3%83%96%E3%83%BC%E3%83%84",
+      "ja_ingame_pattern": "<material>のブーツ",
+      "variants": {
+        "leather_boots": {
+          "ja": "革のブーツ",
+          "en": "Leather Boots",
+          "lang_key": "item.minecraft.leather_boots"
+        },
+        "copper_boots": {
+          "ja": "銅のブーツ",
+          "en": "Copper Boots",
+          "lang_key": "item.minecraft.copper_boots"
+        },
+        "chainmail_boots": {
+          "ja": "チェーンのブーツ",
+          "en": "Chainmail Boots",
+          "lang_key": "item.minecraft.chainmail_boots"
+        },
+        "iron_boots": {
+          "ja": "鉄のブーツ",
+          "en": "Iron Boots",
+          "lang_key": "item.minecraft.iron_boots"
+        },
+        "golden_boots": {
+          "ja": "金のブーツ",
+          "en": "Golden Boots",
+          "lang_key": "item.minecraft.golden_boots"
+        },
+        "diamond_boots": {
+          "ja": "ダイヤモンドのブーツ",
+          "en": "Diamond Boots",
+          "lang_key": "item.minecraft.diamond_boots"
+        },
+        "netherite_boots": {
+          "ja": "ネザライトのブーツ",
+          "en": "Netherite Boots",
+          "lang_key": "item.minecraft.netherite_boots"
+        }
+      },
+      "notes": "Chainmail in Bedrock Edition: チェーンメイルのブーツ."
+    },
+    "turtle_shell": {
+      "ja": "カメの甲羅",
+      "en": "Turtle Shell",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "wiki": "https://ja.minecraft.wiki/w/%E3%82%AB%E3%83%A1%E3%81%AE%E7%94%B2%E7%BE%85",
+      "ja_ingame_pattern": "カメの甲羅",
+      "variants": {
+        "turtle_helmet": {
+          "ja": "カメの甲羅",
+          "en": "Turtle Shell",
+          "lang_key": "item.minecraft.turtle_helmet"
+        }
+      },
+      "notes": "Item ID minecraft:turtle_helmet. Counts as head armor."
+    },
+    "sword": {
+      "ja": "剣",
+      "en": "Sword",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "wiki": "https://ja.minecraft.wiki/w/%E5%89%A3",
+      "ja_ingame_pattern": "<material>の剣",
+      "variants": {
+        "wooden_sword": {
+          "ja": "木の剣",
+          "en": "Wooden Sword",
+          "lang_key": "item.minecraft.wooden_sword"
+        },
+        "stone_sword": {
+          "ja": "石の剣",
+          "en": "Stone Sword",
+          "lang_key": "item.minecraft.stone_sword"
+        },
+        "copper_sword": {
+          "ja": "銅の剣",
+          "en": "Copper Sword",
+          "lang_key": "item.minecraft.copper_sword"
+        },
+        "iron_sword": {
+          "ja": "鉄の剣",
+          "en": "Iron Sword",
+          "lang_key": "item.minecraft.iron_sword"
+        },
+        "golden_sword": {
+          "ja": "金の剣",
+          "en": "Golden Sword",
+          "lang_key": "item.minecraft.golden_sword"
+        },
+        "diamond_sword": {
+          "ja": "ダイヤモンドの剣",
+          "en": "Diamond Sword",
+          "lang_key": "item.minecraft.diamond_sword"
+        },
+        "netherite_sword": {
+          "ja": "ネザライトの剣",
+          "en": "Netherite Sword",
+          "lang_key": "item.minecraft.netherite_sword"
+        }
+      }
+    },
+    "axe": {
+      "ja": "斧",
+      "en": "Axe",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "wiki": "https://ja.minecraft.wiki/w/%E6%96%A7",
+      "ja_ingame_pattern": "<material>の斧",
+      "variants": {
+        "wooden_axe": {
+          "ja": "木の斧",
+          "en": "Wooden Axe",
+          "lang_key": "item.minecraft.wooden_axe"
+        },
+        "stone_axe": {
+          "ja": "石の斧",
+          "en": "Stone Axe",
+          "lang_key": "item.minecraft.stone_axe"
+        },
+        "copper_axe": {
+          "ja": "銅の斧",
+          "en": "Copper Axe",
+          "lang_key": "item.minecraft.copper_axe"
+        },
+        "iron_axe": {
+          "ja": "鉄の斧",
+          "en": "Iron Axe",
+          "lang_key": "item.minecraft.iron_axe"
+        },
+        "golden_axe": {
+          "ja": "金の斧",
+          "en": "Golden Axe",
+          "lang_key": "item.minecraft.golden_axe"
+        },
+        "diamond_axe": {
+          "ja": "ダイヤモンドの斧",
+          "en": "Diamond Axe",
+          "lang_key": "item.minecraft.diamond_axe"
+        },
+        "netherite_axe": {
+          "ja": "ネザライトの斧",
+          "en": "Netherite Axe",
+          "lang_key": "item.minecraft.netherite_axe"
+        }
+      }
+    },
+    "pickaxe": {
+      "ja": "ツルハシ",
+      "en": "Pickaxe",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "wiki": "https://ja.minecraft.wiki/w/%E3%83%84%E3%83%AB%E3%83%8F%E3%82%B7",
+      "ja_ingame_pattern": "<material>のツルハシ",
+      "variants": {
+        "wooden_pickaxe": {
+          "ja": "木のツルハシ",
+          "en": "Wooden Pickaxe",
+          "lang_key": "item.minecraft.wooden_pickaxe"
+        },
+        "stone_pickaxe": {
+          "ja": "石のツルハシ",
+          "en": "Stone Pickaxe",
+          "lang_key": "item.minecraft.stone_pickaxe"
+        },
+        "copper_pickaxe": {
+          "ja": "銅のツルハシ",
+          "en": "Copper Pickaxe",
+          "lang_key": "item.minecraft.copper_pickaxe"
+        },
+        "iron_pickaxe": {
+          "ja": "鉄のツルハシ",
+          "en": "Iron Pickaxe",
+          "lang_key": "item.minecraft.iron_pickaxe"
+        },
+        "golden_pickaxe": {
+          "ja": "金のツルハシ",
+          "en": "Golden Pickaxe",
+          "lang_key": "item.minecraft.golden_pickaxe"
+        },
+        "diamond_pickaxe": {
+          "ja": "ダイヤモンドのツルハシ",
+          "en": "Diamond Pickaxe",
+          "lang_key": "item.minecraft.diamond_pickaxe"
+        },
+        "netherite_pickaxe": {
+          "ja": "ネザライトのツルハシ",
+          "en": "Netherite Pickaxe",
+          "lang_key": "item.minecraft.netherite_pickaxe"
+        }
+      }
+    },
+    "shovel": {
+      "ja": "シャベル",
+      "en": "Shovel",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "wiki": "https://ja.minecraft.wiki/w/%E3%82%B7%E3%83%A3%E3%83%99%E3%83%AB",
+      "ja_ingame_pattern": "<material>のシャベル",
+      "variants": {
+        "wooden_shovel": {
+          "ja": "木のシャベル",
+          "en": "Wooden Shovel",
+          "lang_key": "item.minecraft.wooden_shovel"
+        },
+        "stone_shovel": {
+          "ja": "石のシャベル",
+          "en": "Stone Shovel",
+          "lang_key": "item.minecraft.stone_shovel"
+        },
+        "copper_shovel": {
+          "ja": "銅のシャベル",
+          "en": "Copper Shovel",
+          "lang_key": "item.minecraft.copper_shovel"
+        },
+        "iron_shovel": {
+          "ja": "鉄のシャベル",
+          "en": "Iron Shovel",
+          "lang_key": "item.minecraft.iron_shovel"
+        },
+        "golden_shovel": {
+          "ja": "金のシャベル",
+          "en": "Golden Shovel",
+          "lang_key": "item.minecraft.golden_shovel"
+        },
+        "diamond_shovel": {
+          "ja": "ダイヤモンドのシャベル",
+          "en": "Diamond Shovel",
+          "lang_key": "item.minecraft.diamond_shovel"
+        },
+        "netherite_shovel": {
+          "ja": "ネザライトのシャベル",
+          "en": "Netherite Shovel",
+          "lang_key": "item.minecraft.netherite_shovel"
+        }
+      }
+    },
+    "hoe": {
+      "ja": "クワ",
+      "en": "Hoe",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "wiki": "https://ja.minecraft.wiki/w/%E3%82%AF%E3%83%AF",
+      "ja_ingame_pattern": "<material>のクワ",
+      "variants": {
+        "wooden_hoe": {
+          "ja": "木のクワ",
+          "en": "Wooden Hoe",
+          "lang_key": "item.minecraft.wooden_hoe"
+        },
+        "stone_hoe": {
+          "ja": "石のクワ",
+          "en": "Stone Hoe",
+          "lang_key": "item.minecraft.stone_hoe"
+        },
+        "copper_hoe": {
+          "ja": "銅のクワ",
+          "en": "Copper Hoe",
+          "lang_key": "item.minecraft.copper_hoe"
+        },
+        "iron_hoe": {
+          "ja": "鉄のクワ",
+          "en": "Iron Hoe",
+          "lang_key": "item.minecraft.iron_hoe"
+        },
+        "golden_hoe": {
+          "ja": "金のクワ",
+          "en": "Golden Hoe",
+          "lang_key": "item.minecraft.golden_hoe"
+        },
+        "diamond_hoe": {
+          "ja": "ダイヤモンドのクワ",
+          "en": "Diamond Hoe",
+          "lang_key": "item.minecraft.diamond_hoe"
+        },
+        "netherite_hoe": {
+          "ja": "ネザライトのクワ",
+          "en": "Netherite Hoe",
+          "lang_key": "item.minecraft.netherite_hoe"
+        }
+      }
+    },
+    "spear": {
+      "ja": "槍",
+      "en": "Spear",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "wiki": "https://ja.minecraft.wiki/w/%E6%A7%8D",
+      "ja_ingame_pattern": "<material>の槍",
+      "variants": {
+        "wooden_spear": {
+          "ja": "木の槍",
+          "en": "Wooden Spear",
+          "lang_key": "item.minecraft.wooden_spear"
+        },
+        "stone_spear": {
+          "ja": "石の槍",
+          "en": "Stone Spear",
+          "lang_key": "item.minecraft.stone_spear"
+        },
+        "copper_spear": {
+          "ja": "銅の槍",
+          "en": "Copper Spear",
+          "lang_key": "item.minecraft.copper_spear"
+        },
+        "iron_spear": {
+          "ja": "鉄の槍",
+          "en": "Iron Spear",
+          "lang_key": "item.minecraft.iron_spear"
+        },
+        "golden_spear": {
+          "ja": "金の槍",
+          "en": "Golden Spear",
+          "lang_key": "item.minecraft.golden_spear"
+        },
+        "diamond_spear": {
+          "ja": "ダイヤモンドの槍",
+          "en": "Diamond Spear",
+          "lang_key": "item.minecraft.diamond_spear"
+        },
+        "netherite_spear": {
+          "ja": "ネザライトの槍",
+          "en": "Netherite Spear",
+          "lang_key": "item.minecraft.netherite_spear"
+        }
+      },
+      "notes": "Added in Java 1.21.11."
+    },
+    "bow": {
+      "ja": "弓",
+      "en": "Bow",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "wiki": "https://ja.minecraft.wiki/w/%E5%BC%93",
+      "ja_ingame_pattern": "弓",
+      "variants": {
+        "bow": {
+          "ja": "弓",
+          "en": "Bow",
+          "lang_key": "item.minecraft.bow"
+        }
+      }
+    },
+    "crossbow": {
+      "ja": "クロスボウ",
+      "en": "Crossbow",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "wiki": "https://ja.minecraft.wiki/w/%E3%82%AF%E3%83%AD%E3%82%B9%E3%83%9C%E3%82%A6",
+      "ja_ingame_pattern": "クロスボウ",
+      "variants": {
+        "crossbow": {
+          "ja": "クロスボウ",
+          "en": "Crossbow",
+          "lang_key": "item.minecraft.crossbow"
+        }
+      }
+    },
+    "trident": {
+      "ja": "トライデント",
+      "en": "Trident",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "wiki": "https://ja.minecraft.wiki/w/%E3%83%88%E3%83%A9%E3%82%A4%E3%83%87%E3%83%B3%E3%83%88",
+      "ja_ingame_pattern": "トライデント",
+      "variants": {
+        "trident": {
+          "ja": "トライデント",
+          "en": "Trident",
+          "lang_key": "item.minecraft.trident"
+        }
+      }
+    },
+    "mace": {
+      "ja": "メイス",
+      "en": "Mace",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "wiki": "https://ja.minecraft.wiki/w/%E3%83%A1%E3%82%A4%E3%82%B9",
+      "ja_ingame_pattern": "メイス",
+      "variants": {
+        "mace": {
+          "ja": "メイス",
+          "en": "Mace",
+          "lang_key": "item.minecraft.mace"
+        }
+      }
+    },
+    "fishing_rod": {
+      "ja": "釣竿",
+      "en": "Fishing Rod",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "wiki": "https://ja.minecraft.wiki/w/%E9%87%A3%E7%AB%BF",
+      "ja_ingame_pattern": "釣竿",
+      "variants": {
+        "fishing_rod": {
+          "ja": "釣竿",
+          "en": "Fishing Rod",
+          "lang_key": "item.minecraft.fishing_rod"
+        }
+      },
+      "notes": "Spelled 釣竿, not 釣り竿, in both editions."
+    },
+    "shears": {
+      "ja": "ハサミ",
+      "en": "Shears",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "wiki": "https://ja.minecraft.wiki/w/%E3%83%8F%E3%82%B5%E3%83%9F",
+      "ja_ingame_pattern": "ハサミ",
+      "variants": {
+        "shears": {
+          "ja": "ハサミ",
+          "en": "Shears",
+          "lang_key": "item.minecraft.shears"
+        }
+      }
+    },
+    "shield": {
+      "ja": "盾",
+      "en": "Shield",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "wiki": "https://ja.minecraft.wiki/w/%E7%9B%BE",
+      "ja_ingame_pattern": "盾",
+      "variants": {
+        "shield": {
+          "ja": "盾",
+          "en": "Shield",
+          "lang_key": "item.minecraft.shield"
+        }
+      },
+      "notes": "With a banner pattern: <color>の盾."
+    },
+    "elytra": {
+      "ja": "エリトラ",
+      "en": "Elytra",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "wiki": "https://ja.minecraft.wiki/w/%E3%82%A8%E3%83%AA%E3%83%88%E3%83%A9",
+      "ja_ingame_pattern": "エリトラ",
+      "variants": {
+        "elytra": {
+          "ja": "エリトラ",
+          "en": "Elytra",
+          "lang_key": "item.minecraft.elytra"
+        }
+      }
+    },
+    "flint_and_steel": {
+      "ja": "火打石と打ち金",
+      "en": "Flint and Steel",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "wiki": "https://ja.minecraft.wiki/w/%E7%81%AB%E6%89%93%E7%9F%B3%E3%81%A8%E6%89%93%E3%81%A1%E9%87%91",
+      "ja_ingame_pattern": "火打石と打ち金",
+      "variants": {
+        "flint_and_steel": {
+          "ja": "火打石と打ち金",
+          "en": "Flint and Steel",
+          "lang_key": "item.minecraft.flint_and_steel"
+        }
+      }
+    },
+    "carrot_on_a_stick": {
+      "ja": "ニンジン付きの棒",
+      "en": "Carrot on a Stick",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "wiki": "https://ja.minecraft.wiki/w/%E3%83%8B%E3%83%B3%E3%82%B8%E3%83%B3%E4%BB%98%E3%81%8D%E3%81%AE%E6%A3%92",
+      "ja_ingame_pattern": "ニンジン付きの棒",
+      "variants": {
+        "carrot_on_a_stick": {
+          "ja": "ニンジン付きの棒",
+          "en": "Carrot on a Stick",
+          "lang_key": "item.minecraft.carrot_on_a_stick"
+        }
+      }
+    },
+    "warped_fungus_on_a_stick": {
+      "ja": "歪んだキノコ付きの棒",
+      "en": "Warped Fungus on a Stick",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "wiki": "https://ja.minecraft.wiki/w/%E6%AD%AA%E3%82%93%E3%81%A0%E3%82%AD%E3%83%8E%E3%82%B3%E4%BB%98%E3%81%8D%E3%81%AE%E6%A3%92",
+      "ja_ingame_pattern": "歪んだキノコ付きの棒",
+      "variants": {
+        "warped_fungus_on_a_stick": {
+          "ja": "歪んだキノコ付きの棒",
+          "en": "Warped Fungus on a Stick",
+          "lang_key": "item.minecraft.warped_fungus_on_a_stick"
+        }
+      }
+    },
+    "brush": {
+      "ja": "ブラシ",
+      "en": "Brush",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "wiki": "https://ja.minecraft.wiki/w/%E3%83%96%E3%83%A9%E3%82%B7",
+      "ja_ingame_pattern": "ブラシ",
+      "variants": {
+        "brush": {
+          "ja": "ブラシ",
+          "en": "Brush",
+          "lang_key": "item.minecraft.brush"
+        }
+      },
+      "notes": "Accepts only Unbreaking, Mending and Curse of Vanishing (#enchantable/durability, #enchantable/vanishing)."
+    },
+    "enchanted_book": {
+      "ja": "エンチャントの本",
+      "en": "Enchanted Book",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "wiki": "https://ja.minecraft.wiki/w/%E3%82%A8%E3%83%B3%E3%83%81%E3%83%A3%E3%83%B3%E3%83%88%E3%81%AE%E6%9C%AC",
+      "ja_ingame_pattern": "エンチャントの本",
+      "variants": {
+        "enchanted_book": {
+          "ja": "エンチャントの本",
+          "en": "Enchanted Book",
+          "lang_key": "item.minecraft.enchanted_book"
+        }
+      }
+    },
+    "book": {
+      "ja": "本",
+      "en": "Book",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "wiki": "https://ja.minecraft.wiki/w/%E6%9C%AC",
+      "ja_ingame_pattern": "本",
+      "variants": {
+        "book": {
+          "ja": "本",
+          "en": "Book",
+          "lang_key": "item.minecraft.book"
+        }
+      },
+      "notes": "The book before it is enchanted. Anvil combining normally uses the enchanted book."
+    },
+    "compass": {
+      "ja": "コンパス",
+      "en": "Compass",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "wiki": "https://ja.minecraft.wiki/w/%E3%82%B3%E3%83%B3%E3%83%91%E3%82%B9",
+      "ja_ingame_pattern": "コンパス",
+      "variants": {
+        "compass": {
+          "ja": "コンパス",
+          "en": "Compass",
+          "lang_key": "item.minecraft.compass"
+        }
+      },
+      "notes": "Accepts only Curse of Vanishing (#enchantable/vanishing)."
+    },
+    "carved_pumpkin": {
+      "ja": "くり抜かれたカボチャ",
+      "en": "Carved Pumpkin",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "wiki": "https://ja.minecraft.wiki/w/%E3%81%8F%E3%82%8A%E6%8A%9C%E3%81%8B%E3%82%8C%E3%81%9F%E3%82%AB%E3%83%9C%E3%83%81%E3%83%A3",
+      "ja_ingame_pattern": "くり抜かれたカボチャ",
+      "variants": {
+        "carved_pumpkin": {
+          "ja": "くり抜かれたカボチャ",
+          "en": "Carved Pumpkin",
+          "lang_key": "block.minecraft.carved_pumpkin"
+        }
+      },
+      "notes": "Accepts only Curse of Binding and Curse of Vanishing."
+    },
+    "mob_head": {
+      "ja": "Mobの頭",
+      "en": "Mob Head",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "wiki": "https://ja.minecraft.wiki/w/Mob%E3%81%AE%E9%A0%AD",
+      "ja_ingame_pattern": "<mob>の頭 / <mob>の頭蓋骨",
+      "variants": {
+        "player_head": {
+          "ja": "プレイヤーの頭",
+          "en": "Player Head",
+          "lang_key": "block.minecraft.player_head"
+        },
+        "creeper_head": {
+          "ja": "クリーパーの頭",
+          "en": "Creeper Head",
+          "lang_key": "block.minecraft.creeper_head"
+        },
+        "zombie_head": {
+          "ja": "ゾンビの頭",
+          "en": "Zombie Head",
+          "lang_key": "block.minecraft.zombie_head"
+        },
+        "skeleton_skull": {
+          "ja": "スケルトンの頭蓋骨",
+          "en": "Skeleton Skull",
+          "lang_key": "block.minecraft.skeleton_skull"
+        },
+        "wither_skeleton_skull": {
+          "ja": "ウィザースケルトンの頭蓋骨",
+          "en": "Wither Skeleton Skull",
+          "lang_key": "block.minecraft.wither_skeleton_skull"
+        },
+        "dragon_head": {
+          "ja": "ドラゴンの頭",
+          "en": "Dragon Head",
+          "lang_key": "block.minecraft.dragon_head"
+        },
+        "piglin_head": {
+          "ja": "ピグリンの頭",
+          "en": "Piglin Head",
+          "lang_key": "block.minecraft.piglin_head"
+        }
+      },
+      "notes": "The generic name Mobの頭 is the wiki article title; the article also gives the Bedrock Edition name モブの頭蓋骨. Accepts only Curse of Binding and Curse of Vanishing."
+    }
+  },
+  "terms": {
+    "anvil": {
+      "ja": "金床",
+      "en": "Anvil",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "lang_key": "block.minecraft.anvil",
+      "variants": {
+        "chipped_anvil": "欠けた金床",
+        "damaged_anvil": "壊れかけの金床"
+      }
+    },
+    "anvil_screen_title": {
+      "ja": "修繕・名付け",
+      "en": "Repair & Name",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "lang_key": "container.repair",
+      "ja_bedrock": "修理 & 名前変更",
+      "bedrock_source": "https://github.com/Mojang/bedrock-samples/blob/46ba6ea985fb5a92d79a9419198f10dda14c199d/resource_pack/texts/ja_JP.lang"
+    },
+    "prior_work_penalty": {
+      "ja": "累積作業費用",
+      "en": "Prior work penalty",
+      "source": "https://ja.minecraft.wiki/w/%E9%87%91%E5%BA%8A%E3%81%AE%E4%BB%95%E7%B5%84%E3%81%BF",
+      "note": "A term from the ja.minecraft.wiki article on anvil mechanics, not a string shown in the game. Penalty = 2^(anvil use count) - 1. The wiki does not use 累積作業ペナルティ.",
+      "en_source": "https://minecraft.wiki/w/Anvil_mechanics#Prior_work_penalty"
+    },
+    "anvil_use_count": {
+      "ja": "累計作業値",
+      "en": "anvil use count (number of prior anvil uses)",
+      "source": "https://ja.minecraft.wiki/w/%E9%87%91%E5%BA%8A%E3%81%AE%E4%BB%95%E7%B5%84%E3%81%BF",
+      "note": "Number of anvil operations so far; every operation except renaming adds 1. The stored value is the repair_cost component (formerly the RepairCost NBT tag), which holds the prior work penalty itself."
+    },
+    "base_cost": {
+      "ja": "基礎作業費用",
+      "en": "base cost of the operation",
+      "source": "https://ja.minecraft.wiki/w/%E9%87%91%E5%BA%8A%E3%81%AE%E4%BB%95%E7%B5%84%E3%81%BF"
+    },
+    "total_cost": {
+      "ja": "作業コスト",
+      "en": "total cost",
+      "source": "https://ja.minecraft.wiki/w/%E9%87%91%E5%BA%8A%E3%81%AE%E4%BB%95%E7%B5%84%E3%81%BF",
+      "note": "Prior work penalty + base cost. In Survival and Adventure, up to 39 levels is allowed and 40 or more is refused as Too Expensive! (English wiki, Anvil mechanics: \"Once the cost exceeds 39 levels\"). The Japanese wiki's \"more than 40\" is inaccurate."
+    },
+    "too_expensive": {
+      "ja": "コストが高すぎます！",
+      "en": "Too Expensive!",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "lang_key": "container.repair.expensive",
+      "ja_bedrock": "コストが高すぎます!",
+      "bedrock_source": "https://github.com/Mojang/bedrock-samples/blob/46ba6ea985fb5a92d79a9419198f10dda14c199d/resource_pack/texts/ja_JP.lang",
+      "note": "Java Edition uses the full-width ！ (U+FF01); Bedrock Edition uses the ASCII !."
+    },
+    "enchantment_cost": {
+      "ja": "エンチャントのコスト：%1$sレベル",
+      "en": "Enchantment Cost: %1$s",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "lang_key": "container.repair.cost",
+      "ja_bedrock": "エンチャントのコスト: %1$d",
+      "bedrock_source": "https://github.com/Mojang/bedrock-samples/blob/46ba6ea985fb5a92d79a9419198f10dda14c199d/resource_pack/texts/ja_JP.lang",
+      "note": "Java Edition uses a full-width colon (U+FF1A) and ends with レベル (levels). Bedrock Edition uses an ASCII colon and a space, without レベル."
+    },
+    "level_requirement": {
+      "ja": "必要なコスト：%sレベル",
+      "en": "Level Requirement: %s",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "lang_key": "container.enchant.level.requirement",
+      "note": "Text on the enchanting table screen."
+    },
+    "enchanted_book": {
+      "ja": "エンチャントの本",
+      "en": "Enchanted Book",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "lang_key": "item.minecraft.enchanted_book"
+    },
+    "book": {
+      "ja": "本",
+      "en": "Book",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "lang_key": "item.minecraft.book"
+    },
+    "enchantment": {
+      "ja": "エンチャント",
+      "en": "Enchant",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "lang_key": "container.enchant"
+    },
+    "enchanting_table": {
+      "ja": "エンチャントテーブル",
+      "en": "Enchanting Table",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "lang_key": "block.minecraft.enchanting_table"
+    },
+    "grindstone": {
+      "ja": "砥石",
+      "en": "Grindstone",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "lang_key": "block.minecraft.grindstone",
+      "screen_title": "修繕・エンチャント除去"
+    },
+    "experience_level": {
+      "ja": "経験値レベル",
+      "en": "Experience level",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "lang_key": "argument.entity.options.level.description",
+      "note": "The game (command text) uses 経験値レベル. The ja.minecraft.wiki anvil article also uses 経験レベル in places. Costs are shown as ◯レベル."
+    },
+    "enchantment_level_unit": {
+      "ja": "エンチャントレベル",
+      "en": "Enchantment Level",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "lang_key": "container.enchant.level.many",
+      "example": "%sエンチャントレベル"
+    },
+    "max_level": {
+      "ja": "最大レベル",
+      "en": "Max level",
+      "source": "https://ja.minecraft.wiki/w/%E3%82%A8%E3%83%B3%E3%83%81%E3%83%A3%E3%83%B3%E3%83%88",
+      "note": "Wiki table heading. The game's command error text uses 最高レベル (commands.enchant.failed.level)."
+    },
+    "item_multiplier": {
+      "ja": "アイテムの倍率",
+      "en": "Item multiplier",
+      "source": "https://ja.minecraft.wiki/w/%E9%87%91%E5%BA%8A%E3%81%AE%E4%BB%95%E7%B5%84%E3%81%BF"
+    },
+    "book_multiplier": {
+      "ja": "本の倍率",
+      "en": "Book multiplier",
+      "source": "https://ja.minecraft.wiki/w/%E9%87%91%E5%BA%8A%E3%81%AE%E4%BB%95%E7%B5%84%E3%81%BF"
+    },
+    "incompatible": {
+      "ja": "競合",
+      "en": "Incompatible / mutually exclusive",
+      "source": "https://ja.minecraft.wiki/w/%E3%82%A8%E3%83%B3%E3%83%81%E3%83%A3%E3%83%B3%E3%83%88",
+      "note": "The wiki writes ◯◯と競合する (\"conflicts with ◯◯\")."
+    },
+    "treasure_enchantment": {
+      "ja": "トレジャーエンチャント",
+      "en": "Treasure enchantment",
+      "source": "https://ja.minecraft.wiki/w/%E3%82%A8%E3%83%B3%E3%83%81%E3%83%A3%E3%83%B3%E3%83%88"
+    },
+    "curse": {
+      "ja": "呪い",
+      "en": "Curse",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "note": "As in Curse of Binding and Curse of Vanishing."
+    },
+    "target_item": {
+      "ja": "左のアイテム（修理対象）",
+      "en": "Target (left slot)",
+      "source": "https://ja.minecraft.wiki/w/%E9%87%91%E5%BA%8A%E3%81%AE%E4%BB%95%E7%B5%84%E3%81%BF",
+      "note": "The Japanese wiki says 左にあるアイテム or 左のマス. Japanese has no established term for target and sacrifice."
+    },
+    "sacrifice_item": {
+      "ja": "右のアイテム",
+      "en": "Sacrifice (right slot)",
+      "source": "https://ja.minecraft.wiki/w/%E9%87%91%E5%BA%8A%E3%81%AE%E4%BB%95%E7%B5%84%E3%81%BF",
+      "note": "The Japanese wiki says 右にあるアイテム and does not use 犠牲 (sacrifice)."
+    },
+    "rename": {
+      "ja": "名前の変更",
+      "en": "Renaming",
+      "source": "https://ja.minecraft.wiki/w/%E9%87%91%E5%BA%8A%E3%81%AE%E4%BB%95%E7%B5%84%E3%81%BF",
+      "note": "The in-game screen title is 修繕・名付け. The Japanese wiki anvil article also uses 名称変更."
+    },
+    "repair": {
+      "ja": "修理",
+      "en": "Repair",
+      "source": "https://ja.minecraft.wiki/w/%E9%87%91%E5%BA%8A",
+      "note": "修繕 is also the name of Mending, so prefer 修理 in the UI."
+    },
+    "durability": {
+      "ja": "耐久値",
+      "en": "Durability",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "lang_key": "item.durability",
+      "example": "耐久値：%s／%s"
+    },
+    "survival": {
+      "ja": "サバイバル",
+      "en": "Survival",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "lang_key": "selectWorld.gameMode.survival",
+      "long": "サバイバルモード"
+    },
+    "creative": {
+      "ja": "クリエイティブ",
+      "en": "Creative",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "lang_key": "selectWorld.gameMode.creative",
+      "long": "クリエイティブモード"
+    },
+    "java_edition": {
+      "ja": "Java 版",
+      "en": "Java Edition",
+      "source": "https://www.minecraft.net/ja-jp/updates/minecraft-updates-timeline-and-evolution",
+      "alt": "Java Edition",
+      "note": "The Japanese minecraft.net uses Java 版 (with an ASCII space); ja.minecraft.wiki uses Java Edition."
+    },
+    "bedrock_edition": {
+      "ja": "統合版",
+      "en": "Bedrock Edition",
+      "source": "https://www.minecraft.net/ja-jp/updates/minecraft-updates-timeline-and-evolution",
+      "alt": "Bedrock Edition",
+      "wiki": "https://ja.minecraft.wiki/w/Bedrock%20Edition",
+      "note": "ja.minecraft.wiki uses Bedrock Edition and notes that it is often called 統合版 in Japan."
+    },
+    "armor": {
+      "ja": "防具",
+      "en": "Armor",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "lang_key": "item.minecraft.smithing_template.armor_trim.applies_to"
+    },
+    "tools": {
+      "ja": "道具",
+      "en": "Tools",
+      "source": "https://ja.minecraft.wiki/w/%E9%81%93%E5%85%B7"
+    },
+    "weapon": {
+      "ja": "武器",
+      "en": "Weapon",
+      "source": "https://ja.minecraft.wiki/w/%E6%AD%A6%E5%99%A8"
+    },
+    "experience_bottle": {
+      "ja": "エンチャントの瓶",
+      "en": "Bottle o' Enchanting",
+      "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+      "lang_key": "item.minecraft.experience_bottle"
+    }
+  },
+  "enchantment_levels": {
+    "ja": {
+      "1": "I",
+      "2": "II",
+      "3": "III",
+      "4": "IV",
+      "5": "V",
+      "6": "VI",
+      "7": "VII",
+      "8": "VIII",
+      "9": "IX",
+      "10": "X"
+    },
+    "source": "https://resources.download.minecraft.net/93/93054df00419a33c4336b14c05c8896177556621",
+    "lang_keys": "enchantment.level.1 .. enchantment.level.10",
+    "note": "ja_jp also uses the ASCII Roman numerals I to X. In Java Edition, an enchantment whose max level is 1 shows no level. The name and the level are separated by an ASCII space (e.g. ダメージ増加 V)."
+  }
+}

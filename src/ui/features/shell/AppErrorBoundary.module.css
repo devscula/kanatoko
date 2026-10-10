@@ -1,0 +1,48 @@
+.failure {
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: var(--sp-7) var(--gutter);
+  background: var(--bg);
+  color: var(--ink);
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--sp-3);
+  max-width: var(--measure);
+  margin: 0 auto;
+}
+
+.app {
+  color: var(--muted);
+  font: var(--t-small);
+  font-weight: 700;
+}
+
+.title {
+  font: var(--t-heading);
+}
+
+.note {
+  font: var(--t-body);
+}
+
+.button {
+  composes: frame2 from '../../styles/pixel.module.css';
+  --frame-border: var(--edge);
+  --frame-fill: var(--surface);
+  min-height: var(--target);
+  margin-top: var(--sp-2);
+  padding: 0 var(--sp-4);
+  border: 0;
+  background: none;
+  color: var(--ink);
+  font: var(--t-body);
+  font-weight: 700;
+}
+
+.button:hover {
+  --frame-fill: var(--surface-2);
+}

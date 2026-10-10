@@ -1,0 +1,174 @@
+.tree {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.scroller {
+  overflow-x: auto;
+  /* Keeps the focus ring from being clipped at the scroll edges; the negative margin cancels the padding */
+  padding: var(--sp-2);
+  margin-inline: calc(-1 * var(--sp-2));
+  scroll-padding: var(--sp-2);
+}
+
+.canvas {
+  position: relative;
+  margin-inline: auto;
+  /* Room for the finished item's name under the last step */
+  margin-bottom: calc(var(--lh-small) + var(--sp-1));
+}
+
+.materials {
+  position: absolute;
+  inset: 0;
+}
+
+.material {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-1);
+  text-align: center;
+}
+
+/* Japanese names break at the space before the level rather than inside a word */
+.materialName {
+  font: var(--t-caption);
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
+/* Compact columns are too narrow for horizontal names */
+.tree[data-layout='compact'] .materialName {
+  writing-mode: vertical-rl;
+  line-height: 1.2;
+}
+
+.upright {
+  text-combine-upright: all;
+}
+
+.steps {
+  position: absolute;
+  right: 0;
+  left: 0;
+}
+
+.lines {
+  position: absolute;
+  inset: 0;
+  overflow: visible;
+  pointer-events: none;
+}
+
+/* The lines carry meaning, so they need the 3:1 contrast of --edge */
+.lines path {
+  fill: none;
+  stroke: var(--edge);
+  stroke-width: var(--border);
+  stroke-linecap: round;
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.node {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: translateX(-50%);
+}
+
+.button {
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-2);
+  margin: 0;
+  padding: 0 var(--sp-2);
+  border: 0;
+  background: none;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.tree[data-layout='compact'] .button {
+  flex-direction: column;
+  gap: 2px;
+  padding: 0;
+}
+
+.button::before,
+.button::after {
+  border-radius: calc(var(--radius-btn) - var(--border));
+  content: '';
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.button::before {
+  inset: 0;
+  background: var(--edge);
+  border-radius: var(--radius-btn);
+}
+
+.button::after {
+  inset: var(--border);
+  background: var(--surface);
+}
+
+.button:hover::after {
+  background: var(--surface-2);
+}
+
+.button[data-over]::before {
+  background: var(--danger);
+}
+
+.figures {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.stepLabel {
+  color: var(--muted);
+  font: var(--t-caption);
+}
+
+.stepNo {
+  font: var(--t-pixel-16);
+}
+
+.cost {
+  color: var(--xp);
+  font: var(--t-pixel-16);
+  font-variant-numeric: tabular-nums;
+}
+
+.button[data-over] .cost {
+  color: var(--danger);
+}
+
+.rootLabel {
+  position: absolute;
+  top: calc(100% + var(--sp-1));
+  font: var(--t-small);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+@media print {
+  .scroller {
+    overflow: visible;
+  }
+}

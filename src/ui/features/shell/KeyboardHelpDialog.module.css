@@ -1,0 +1,86 @@
+.note {
+  margin-bottom: var(--sp-4);
+  color: var(--muted);
+  font: var(--t-small);
+  max-width: var(--measure);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font: var(--t-small);
+}
+
+.table th,
+.table td {
+  padding: var(--sp-2);
+  border-bottom: var(--border) solid var(--line);
+  text-align: start;
+  vertical-align: top;
+}
+
+.table thead th {
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.table tbody th {
+  white-space: nowrap;
+  font-weight: 400;
+}
+
+.kbd {
+  display: inline-block;
+  padding: 0 var(--sp-2);
+  background: var(--slot);
+  font: inherit;
+  font-weight: 700;
+  clip-path: var(--notch-2);
+}
+
+.where {
+  color: var(--muted);
+}
+
+.single {
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* Narrow screens stack each row; the header row is visually hidden so each row reads on its own. */
+@media (max-width: 599px) {
+  .table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+
+  .table,
+  .table tbody,
+  .table tr,
+  .table th,
+  .table td {
+    display: block;
+  }
+
+  .table tr {
+    padding: var(--sp-2) 0;
+    border-bottom: var(--border) solid var(--line);
+  }
+
+  .table th,
+  .table td {
+    padding: var(--sp-1) 0;
+    border: 0;
+  }
+
+  .table .single {
+    text-align: start;
+  }
+
+  .table .single:empty {
+    display: none;
+  }
+}

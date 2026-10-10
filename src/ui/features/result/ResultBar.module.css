@@ -1,0 +1,58 @@
+.bar {
+  position: fixed;
+  z-index: var(--z-bar);
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-3);
+  min-height: var(--bar-height);
+  padding: var(--sp-1) var(--gutter);
+  /* Keeps the bar distinct from a toast's band shown over it */
+  border-top: var(--border) solid var(--edge);
+  background: var(--surface);
+}
+
+.text {
+  min-width: 0;
+  font: var(--t-body);
+  font-weight: 700;
+  white-space: pre-wrap;
+}
+
+.xp,
+.number {
+  font: var(--t-pixel-32);
+  font-variant-numeric: tabular-nums;
+  vertical-align: -0.1em;
+}
+
+.xp {
+  color: var(--xp);
+}
+
+.bar > button {
+  flex: none;
+  white-space: nowrap;
+}
+
+/* Smaller text keeps English on one line on phones; when it still wraps, two lines fit the bar height */
+@media (max-width: 429px) {
+  .text {
+    font: var(--t-small);
+    font-weight: 700;
+  }
+
+  .xp,
+  .number {
+    font: var(--t-pixel-16);
+  }
+}
+
+@media print {
+  .bar {
+    display: none;
+  }
+}

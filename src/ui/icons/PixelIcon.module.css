@@ -1,0 +1,7 @@
+.icon {
+  display: inline-block;
+  flex: none;
+  /* A 24px icon still shows the cells outside its trimmed viewBox */
+  overflow: visible;
+  vertical-align: middle;
+}

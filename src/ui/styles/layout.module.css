@@ -1,0 +1,25 @@
+/* The column layout is in src/ui/features/shell/WorkbenchLayout.module.css */
+
+.skip {
+  position: absolute;
+  z-index: var(--z-toast);
+  top: var(--sp-2);
+  left: var(--sp-2);
+  padding: var(--sp-2) var(--sp-4);
+  background: var(--ink);
+  color: var(--on-ink);
+  font: var(--t-body);
+  font-weight: 700;
+  text-decoration: none;
+  transform: translateY(calc(-100% - var(--sp-4)));
+}
+
+.skip:focus-visible {
+  transform: none;
+}
+
+@media print {
+  .skip {
+    display: none;
+  }
+}

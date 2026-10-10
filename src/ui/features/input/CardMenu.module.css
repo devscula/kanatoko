@@ -1,0 +1,28 @@
+.wrap {
+  position: relative;
+  flex: none;
+}
+
+.popover {
+  composes: frame4 from '../../styles/pixel.module.css';
+  --frame-border: var(--edge);
+}
+
+/* Qualified with the parent to win over the position: relative from frame4 */
+.wrap > .popover {
+  position: absolute;
+  top: calc(100% + var(--sp-1));
+  right: 0;
+  z-index: var(--z-sticky);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+  width: min(var(--sheet-panel), calc(100vw - 2 * var(--gutter)));
+  padding: var(--sp-4);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+}

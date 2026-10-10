@@ -1,0 +1,108 @@
+.result {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-5);
+  min-width: 0;
+}
+
+.head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sp-2) var(--sp-4);
+  min-height: var(--target);
+}
+
+.titleRow {
+  display: flex;
+  flex: 1 0 auto;
+  align-items: center;
+  gap: var(--sp-3);
+}
+
+.heading {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font: var(--t-heading);
+}
+
+.busy {
+  padding: 0 var(--sp-2);
+  background: var(--surface-2);
+  color: var(--muted);
+  font: var(--t-small);
+  font-weight: 700;
+}
+
+.view {
+  flex: none;
+}
+
+.shareTop {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.shareTop:empty,
+.shareBottom:empty {
+  display: none;
+}
+
+.conditions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sp-2);
+  margin-top: calc(-1 * var(--sp-3));
+}
+
+.shareBottom {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+}
+
+@media (min-width: 880px) {
+  .titleRow {
+    flex: none;
+  }
+}
+
+@media print {
+  .view,
+  .busy,
+  .shareTop,
+  .shareBottom {
+    display: none;
+  }
+}
+
+@media (min-width: 880px) {
+  .result {
+    gap: var(--sp-3);
+  }
+
+  .conditions {
+    column-gap: var(--sp-2);
+    row-gap: var(--sp-1);
+    margin-top: 0;
+  }
+
+  /* On short viewports the row stays on one line until the more button opens it */
+  .conditions[data-compact] {
+    flex-wrap: nowrap;
+  }
+
+  .conditions[data-compact] > ul {
+    flex: none;
+    flex-wrap: nowrap;
+  }
+
+  .conditionsMore {
+    flex: none;
+    margin-inline-start: auto;
+  }
+}

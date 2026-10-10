@@ -1,0 +1,40 @@
+.narrow {
+  width: min(360px, calc(100vw - 16px));
+}
+
+.normal {
+  width: min(480px, calc(100vw - 16px));
+}
+
+.wide {
+  width: min(560px, calc(100vw - 16px));
+}
+
+.head {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-2);
+  padding: var(--sp-2) var(--sp-2) var(--sp-2) var(--sp-4);
+  border-bottom: 1px solid var(--line);
+}
+
+.title {
+  margin: 0;
+  font: var(--t-row);
+  font-weight: 700;
+}
+
+.body {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: auto;
+  padding: var(--sp-3) var(--sp-4) var(--sp-4);
+}
+
+.foot {
+  flex: none;
+  padding: var(--sp-2) var(--sp-4);
+  border-top: 1px solid var(--line);
+}

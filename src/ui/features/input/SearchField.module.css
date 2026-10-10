@@ -1,0 +1,64 @@
+.field {
+  composes: frame2 from '../../styles/pixel.module.css';
+  --frame-border: var(--edge);
+  --frame-fill: var(--surface);
+  display: flex;
+  align-items: center;
+  min-height: calc(var(--target) + var(--sp-1));
+}
+
+.field:focus-within {
+  --frame-border: var(--ink);
+}
+
+.icon {
+  flex: none;
+  margin-left: var(--sp-3);
+  color: var(--muted);
+  pointer-events: none;
+}
+
+.input {
+  flex: 1 1 auto;
+  min-width: 0;
+  align-self: stretch;
+  margin: 0;
+  padding: 0 var(--sp-3) 0 var(--sp-2);
+  border: 0;
+  background: none;
+  color: var(--ink);
+  font: var(--t-body);
+  appearance: none;
+}
+
+/* Drawn around the whole .field instead */
+.input:focus-visible {
+  outline: none;
+}
+
+.input::placeholder {
+  color: var(--muted);
+  opacity: 1;
+}
+
+/* The component has its own clear button */
+.input::-webkit-search-cancel-button,
+.input::-webkit-search-decoration {
+  appearance: none;
+}
+
+.field:has(.input:focus-visible) {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.clear {
+  flex: none;
+  margin-right: var(--px);
+}
+
+@media (forced-colors: active) {
+  .field {
+    border: 2px solid CanvasText;
+  }
+}

@@ -1,0 +1,235 @@
+.button {
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-2);
+  min-width: var(--target);
+  min-height: var(--target);
+  margin: 0;
+  padding: 0 var(--sp-4);
+  border: 0;
+  background: none;
+  color: var(--ink);
+  font: var(--t-body);
+  font-weight: 700;
+  line-height: 1.25;
+  text-align: center;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  user-select: none;
+  border-radius: var(--radius-btn);
+}
+
+.button::before,
+.button::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.label {
+  display: inline-block;
+  padding-block: var(--sp-2);
+}
+
+.block {
+  display: flex;
+  width: 100%;
+}
+
+/* The ledge (::before) and face (::after) are drawn inside the element so that the focus ring encloses the ledge */
+.primary {
+  color: var(--on-ink);
+  min-height: calc(var(--target) + var(--btn-depth-size));
+  padding-bottom: var(--btn-depth-size);
+}
+
+.primary::before {
+  inset: var(--btn-depth-size) 0 0 0;
+  background: var(--btn-depth);
+  border-radius: var(--radius-btn);
+}
+
+.primary::after {
+  inset: 0 0 var(--btn-depth-size) 0;
+  background: var(--ink);
+  border-radius: var(--radius-btn);
+  transition: inset var(--dur-press) steps(2, end);
+}
+
+.primary:active:not(:disabled, [aria-disabled='true']) {
+  padding-top: 2px;
+  padding-bottom: calc(var(--btn-depth-size) - 2px);
+}
+
+.primary:active:not(:disabled, [aria-disabled='true'])::after {
+  inset: 2px 0 calc(var(--btn-depth-size) - 2px) 0;
+}
+
+.primary:disabled,
+.primary[aria-disabled='true'] {
+  color: var(--muted);
+}
+
+.primary:disabled::before,
+.primary[aria-disabled='true']::before {
+  background: var(--surface-2);
+}
+
+.primary:disabled::after,
+.primary[aria-disabled='true']::after {
+  inset: 0;
+  background: var(--surface-2);
+}
+
+.secondary::before,
+.danger::before,
+.iconButton.secondary::before {
+  inset: 0;
+  background: var(--edge);
+  border-radius: var(--radius-btn);
+}
+
+.secondary::after,
+.danger::after {
+  inset: var(--border);
+  background: var(--surface);
+  border-radius: calc(var(--radius-btn) - var(--border));
+}
+
+.danger {
+  color: var(--danger);
+}
+
+.danger::before {
+  background: var(--danger);
+}
+
+.secondary:hover:not(:disabled, [aria-disabled='true'])::after,
+.danger:hover:not(:disabled, [aria-disabled='true'])::after {
+  background: var(--surface-2);
+}
+
+.secondary:active:not(:disabled, [aria-disabled='true']),
+.danger:active:not(:disabled, [aria-disabled='true']) {
+  transform: translateY(1px);
+}
+
+.secondary:disabled,
+.secondary[aria-disabled='true'],
+.danger:disabled,
+.danger[aria-disabled='true'] {
+  color: var(--muted);
+}
+
+.secondary:disabled::before,
+.danger:disabled::before,
+.secondary[aria-disabled='true']::before,
+.danger[aria-disabled='true']::before {
+  background: var(--line);
+}
+
+.secondary:disabled::after,
+.danger:disabled::after,
+.secondary[aria-disabled='true']::after,
+.danger[aria-disabled='true']::after {
+  background: var(--surface-2);
+}
+
+.ghost {
+  padding-inline: var(--sp-1);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.25em;
+}
+
+.ghost:hover:not(:disabled, [aria-disabled='true']) {
+  text-decoration-thickness: 2px;
+}
+
+.ghost:disabled,
+.ghost[aria-disabled='true'] {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.iconButton {
+  width: var(--target);
+  height: var(--target);
+  padding: 0;
+  flex: none;
+}
+
+.iconButton.secondary::after {
+  inset: var(--border);
+  background: var(--surface);
+  border-radius: calc(var(--radius-btn) - var(--border));
+}
+
+.iconButton.ghost {
+  text-decoration: none;
+}
+
+.iconButton.ghost:hover:not(:disabled)::after {
+  inset: 0;
+  background: var(--surface-2);
+  border-radius: var(--radius-btn);
+}
+
+.inverse {
+  color: var(--on-ink);
+}
+
+.inverse:hover:not(:disabled)::after {
+  inset: var(--sp-1);
+  background: color-mix(in srgb, var(--on-ink) 16%, transparent);
+  border-radius: var(--radius-btn);
+}
+
+.inverse:focus-visible {
+  outline-color: var(--on-ink);
+}
+
+@media (forced-colors: active) {
+  .button {
+    border: 2px solid ButtonText;
+  }
+
+  .ghost {
+    border: 0;
+  }
+}
+
+@media (pointer: fine) {
+  .button {
+    min-width: var(--target-fine);
+    min-height: var(--target-fine);
+    padding: 0 var(--sp-3);
+  }
+
+  .primary {
+    min-height: calc(40px + var(--btn-depth-size));
+  }
+
+  .label {
+    padding-block: var(--sp-1);
+  }
+
+  /* Ghost buttons read as links, so they keep their narrow padding */
+  .ghost {
+    padding-inline: var(--sp-1);
+  }
+
+  /* The .button padding would leave only 8px of the 32px for the icon */
+  .iconButton {
+    width: var(--target-fine);
+    height: var(--target-fine);
+    min-width: var(--target-fine);
+    min-height: var(--target-fine);
+    padding: 0;
+  }
+}

@@ -1,0 +1,280 @@
+/*
+ * Media queries cannot read variables, so components repeat these breakpoints: narrow < 600px, medium 600-1023px,
+ * wide >= 1024px, and short landscape, (max-height: 500px) and (orientation: landscape) and (min-width: 560px).
+ * Short landscape screens under 560px wide cannot fit two columns, so they keep the portrait layout.
+ */
+
+:root {
+  color-scheme: light;
+
+  /* Color */
+  --bg: #e6eaee;
+  --surface: #f8f9fa;
+  --surface-2: #eef1f4;
+  --slot: #d3d9e0;
+  --edge: #6e7989;
+  --line: #c3cad3;
+  --ink: #1a2130;
+  --on-ink: #f8f9fa;
+  --muted: #4b5566;
+  --enchant: #6331c4;
+  --enchant-bg: #eee7fb;
+  --xp: #2b7310;
+  --pwp: #8a5a00;
+  --danger: #b3261e;
+  --danger-bg: #fbe9e7;
+  --focus: #1d5bd6;
+  --btn-depth: #0b0f18;
+  --slot-shadow: #6e7989;
+  --slot-light: #ffffff;
+  --scrim: rgb(26 33 48 / 0.55);
+
+  /* Type */
+  --font-ui: 'BIZ UDPGothic', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic UI', 'Meiryo', system-ui, sans-serif;
+  --font-pixel: 'DotGothic16', var(--font-ui);
+
+  /* rem, so that text follows the browser's font size; the px values assume 16px per rem */
+  --fs-caption: 0.75rem;   --lh-caption: 1.125rem;  /* 12 / 18 */
+  --fs-small: 0.875rem;    --lh-small: 1.375rem;    /* 14 / 22 */
+  --fs-body: 1rem;         --lh-body: 1.75rem;      /* 16 / 28 */
+  --fs-row: 1.125rem;      --lh-row: 1.75rem;       /* 18 / 28 */
+  --fs-heading: 1.3125rem; --lh-heading: 1.875rem;  /* 21 / 30 */
+  --fs-title: 1.5rem;      --lh-title: 2.125rem;    /* 24 / 34 */
+  --fs-pixel-16: 1rem;
+  --fs-pixel-32: 2rem;
+  --fs-pixel-48: 3rem;
+
+  /* font: var(--t-body); set font-weight after it for bold */
+  --t-caption: 400 var(--fs-caption) / var(--lh-caption) var(--font-ui);
+  --t-small: 400 var(--fs-small) / var(--lh-small) var(--font-ui);
+  --t-body: 400 var(--fs-body) / var(--lh-body) var(--font-ui);
+  --t-row: 400 var(--fs-row) / var(--lh-row) var(--font-ui);
+  --t-heading: 700 var(--fs-heading) / var(--lh-heading) var(--font-ui);
+  --t-title: 400 var(--fs-title) / var(--lh-title) var(--font-ui);
+  --t-pixel-16: 400 var(--fs-pixel-16) / 1 var(--font-pixel);
+  --t-pixel-32: 400 var(--fs-pixel-32) / 1 var(--font-pixel);
+  --t-pixel-48: 400 var(--fs-pixel-48) / 1 var(--font-pixel);
+
+  /* Spacing and sizes */
+  --sp-1: 0.25rem;  /* 4 */
+  --sp-2: 0.5rem;   /* 8 */
+  --sp-3: 0.75rem;  /* 12 */
+  --sp-4: 1rem;     /* 16 */
+  --sp-5: 1.5rem;   /* 24 */
+  --sp-6: 2rem;     /* 32 */
+  --sp-7: 3rem;     /* 48 */
+  --sp-8: 4rem;     /* 64 */
+  /* 2px is reserved for pixel-art details: bevels, notches and gaps */
+  --px: 2px;
+
+  --gutter: 16px;
+  --card-pad: 16px;
+  --page-max: 1280px;
+  --column-max: 640px;     /* single-column layout */
+  --measure: 40em;
+
+  --target: 44px;          /* minimum hit target */
+  --row-min: 56px;         /* enchantment rows */
+  --bar-height: 56px;      /* result bar and sticky summary row */
+  --chip: 44px;            /* level chips */
+  --chip-gap: 8px;
+
+  /* Component sizes */
+  --switch-width: 52px;
+  --switch-height: 32px;
+  --switch-thumb: 24px;
+  --sheet-dialog: 560px;
+  --sheet-dialog-narrow: 480px;
+  --sheet-panel: 400px;    /* settings side panel */
+  --sheet-max-height: 90vh;
+  --toast-max: 480px;
+  --slot-card: 72px;       /* Slot size 72 */
+  /* Column widths */
+  --workbench-max: 1920px;
+  /* Narrower at 880-1199px, where the steps column needs the room for its names */
+  --col-left-2: clamp(288px, 26vw, 400px);
+  --col-left-3: clamp(340px, 25vw, 480px);
+  --step-row: 64px;
+  --target-fine: 32px;
+  /* Slot and tooltip colors, the same in every theme */
+  --slot-face: #8b8b8b;
+  --slot-lo: #373737;
+  --slot-hi: #ffffff;
+  --tip-bg: #170c24;
+  --tip-edge: #8466f5;
+  --tip-title: #ffffff;
+  --tip-text: #c4c4cc;
+  --tip-muted: #9a94a8;
+  --tip-pwp: #f0c060;
+
+  --border: 2px;
+  --rail: 4px;             /* left accent bar on banners, notes and list rows */
+  --btn-depth-size: 4px;
+
+  /* Only buttons get rounded corners; cards, sheets and slots keep the stepped notches */
+  --radius-btn: 8px;
+  --radius-pill: 999px;
+
+  /* Stepped corner notches for clip-path. Apply them to background pseudo-elements only */
+  --notch-2: polygon(
+    0 2px, 2px 2px, 2px 0,
+    calc(100% - 2px) 0, calc(100% - 2px) 2px, 100% 2px,
+    100% calc(100% - 2px), calc(100% - 2px) calc(100% - 2px), calc(100% - 2px) 100%,
+    2px 100%, 2px calc(100% - 2px), 0 calc(100% - 2px)
+  );
+  --notch-4: polygon(
+    0 4px, 2px 4px, 2px 2px, 4px 2px, 4px 0,
+    calc(100% - 4px) 0, calc(100% - 4px) 2px, calc(100% - 2px) 2px, calc(100% - 2px) 4px, 100% 4px,
+    100% calc(100% - 4px), calc(100% - 2px) calc(100% - 4px), calc(100% - 2px) calc(100% - 2px), calc(100% - 4px) calc(100% - 2px), calc(100% - 4px) 100%,
+    4px 100%, 4px calc(100% - 2px), 2px calc(100% - 2px), 2px calc(100% - 4px), 0 calc(100% - 4px)
+  );
+  --notch-2-top: polygon(
+    0 2px, 2px 2px, 2px 0,
+    calc(100% - 2px) 0, calc(100% - 2px) 2px, 100% 2px,
+    100% 100%, 0 100%
+  );
+  --notch-4-top: polygon(
+    0 4px, 2px 4px, 2px 2px, 4px 2px, 4px 0,
+    calc(100% - 4px) 0, calc(100% - 4px) 2px, calc(100% - 2px) 2px, calc(100% - 2px) 4px, 100% 4px,
+    100% 100%, 0 100%
+  );
+  /* Pixel-art circle so that radio buttons do not look like the square checkboxes. -sm is the inner face, which
+     leaves a 2px ring inside the outer shape, and -xs is the selected dot */
+  --notch-circle: polygon(
+    0 8px, 2px 8px, 2px 4px, 4px 4px, 4px 2px, 8px 2px, 8px 0,
+    calc(100% - 8px) 0, calc(100% - 8px) 2px, calc(100% - 4px) 2px, calc(100% - 4px) 4px, calc(100% - 2px) 4px, calc(100% - 2px) 8px, 100% 8px,
+    100% calc(100% - 8px), calc(100% - 2px) calc(100% - 8px), calc(100% - 2px) calc(100% - 4px), calc(100% - 4px) calc(100% - 4px), calc(100% - 4px) calc(100% - 2px), calc(100% - 8px) calc(100% - 2px), calc(100% - 8px) 100%,
+    8px 100%, 8px calc(100% - 2px), 4px calc(100% - 2px), 4px calc(100% - 4px), 2px calc(100% - 4px), 2px calc(100% - 8px), 0 calc(100% - 8px)
+  );
+  --notch-circle-sm: polygon(
+    0 6px, 2px 6px, 2px 4px, 4px 4px, 4px 2px, 6px 2px, 6px 0,
+    calc(100% - 6px) 0, calc(100% - 6px) 2px, calc(100% - 4px) 2px, calc(100% - 4px) 4px, calc(100% - 2px) 4px, calc(100% - 2px) 6px, 100% 6px,
+    100% calc(100% - 6px), calc(100% - 2px) calc(100% - 6px), calc(100% - 2px) calc(100% - 4px), calc(100% - 4px) calc(100% - 4px), calc(100% - 4px) calc(100% - 2px), calc(100% - 6px) calc(100% - 2px), calc(100% - 6px) 100%,
+    6px 100%, 6px calc(100% - 2px), 4px calc(100% - 2px), 4px calc(100% - 4px), 2px calc(100% - 4px), 2px calc(100% - 6px), 0 calc(100% - 6px)
+  );
+  --notch-circle-xs: polygon(
+    0 4px, 2px 4px, 2px 2px, 4px 2px, 4px 0,
+    calc(100% - 4px) 0, calc(100% - 4px) 2px, calc(100% - 2px) 2px, calc(100% - 2px) 4px, 100% 4px,
+    100% calc(100% - 4px), calc(100% - 2px) calc(100% - 4px), calc(100% - 2px) calc(100% - 2px), calc(100% - 4px) calc(100% - 2px), calc(100% - 4px) 100%,
+    4px 100%, 4px calc(100% - 2px), 2px calc(100% - 2px), 2px calc(100% - 4px), 0 calc(100% - 4px)
+  );
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --dur-press: 80ms;
+  --dur-disclose: 120ms;
+  --dur-toast-in: 160ms;
+  --dur-toast-out: 120ms;
+  --dur-sheet: 200ms;
+  --dur-dialog: 160ms;
+  --dur-scrim: 200ms;
+  --dur-segment: 120ms;
+  --dur-reduced: 100ms;     /* opacity-only transitions when motion is reduced */
+  --dur-glint: 16s;         /* for the glint to move one texture tile */
+  /* Multiplier for transform distances; 0 when motion is reduced, which leaves opacity-only transitions */
+  --move: 1;
+
+  --z-sticky: 10;
+  --z-bar: 20;
+  --z-sheet: 50;
+  --z-toast: 80;  /* undo toasts show above sheets */
+}
+
+@media (min-width: 600px) {
+  :root {
+    --gutter: 24px;
+    --card-pad: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --gutter: 32px;
+  }
+}
+
+/* Dark colors follow the OS unless html[data-theme] is set. Screen only: print always uses the light colors */
+@media screen and (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
+    --bg: #1a1f28;
+    --surface: #232a35;
+    --surface-2: #2a323f;
+    --slot: #2e3644;
+    --edge: #75839a;
+    --line: #3a4352;
+    --ink: #e8ecf1;
+    --on-ink: #1a1f28;
+    --muted: #a5afbd;
+    --enchant: #b79aff;
+    --enchant-bg: #33294d;
+    --xp: #8edb52;
+    --pwp: #f0c060;
+    --danger: #ff8a7a;
+    --danger-bg: #48262a;
+    --focus: #7fb0ff;
+    --btn-depth: #9aa5b5;
+    --slot-shadow: #11151b;
+    --slot-light: #75839a;
+    --scrim: rgb(0 0 0 / 0.6);
+  }
+}
+
+@media screen {
+  :root[data-theme='dark'] {
+    color-scheme: dark;
+    --bg: #1a1f28;
+    --surface: #232a35;
+    --surface-2: #2a323f;
+    --slot: #2e3644;
+    --edge: #75839a;
+    --line: #3a4352;
+    --ink: #e8ecf1;
+    --on-ink: #1a1f28;
+    --muted: #a5afbd;
+    --enchant: #b79aff;
+    --enchant-bg: #33294d;
+    --xp: #8edb52;
+    --pwp: #f0c060;
+    --danger: #ff8a7a;
+    --danger-bg: #48262a;
+    --focus: #7fb0ff;
+    --btn-depth: #9aa5b5;
+    --slot-shadow: #11151b;
+    --slot-light: #75839a;
+    --scrim: rgb(0 0 0 / 0.6);
+  }
+}
+
+/* The in-app motion setting (html[data-motion]) wins over the OS one */
+@media (prefers-reduced-motion: reduce) {
+  :root:not([data-motion='full']) {
+    --dur-press: 0ms;
+    --dur-disclose: 0ms;
+    --dur-toast-in: var(--dur-reduced);
+    --dur-toast-out: var(--dur-reduced);
+    --dur-sheet: var(--dur-reduced);
+    --dur-dialog: var(--dur-reduced);
+    --dur-scrim: var(--dur-reduced);
+    --dur-segment: 0ms;
+    --move: 0;
+  }
+}
+
+:root[data-motion='reduce'] {
+  --dur-press: 0ms;
+  --dur-disclose: 0ms;
+  --dur-toast-in: var(--dur-reduced);
+  --dur-toast-out: var(--dur-reduced);
+  --dur-sheet: var(--dur-reduced);
+  --dur-dialog: var(--dur-reduced);
+  --dur-scrim: var(--dur-reduced);
+  --dur-segment: 0ms;
+  --move: 0;
+}
+
+@media (max-height: 899px) {
+  :root {
+    --step-row: 52px;
+  }
+}

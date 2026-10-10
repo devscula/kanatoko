@@ -1,0 +1,140 @@
+.dock {
+  position: fixed;
+  z-index: var(--z-toast);
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  padding: 0 var(--gutter) var(--sp-4);
+  pointer-events: none;
+}
+
+:global(html[data-result-bar]) .dock {
+  bottom: calc(var(--result-bar-cover, var(--bar-height)) + var(--sp-2));
+}
+
+/* Toasts about the input sit under the left column, so the widths and gutters here must match WorkbenchLayout */
+@media (min-width: 880px) {
+  .dock[data-area='input'] {
+    justify-content: flex-start;
+    left: max(0px, calc((100vw - var(--workbench-max)) / 2));
+    right: auto;
+    width: calc(var(--col-left-2) + 2 * 16px);
+    padding-inline: 16px;
+  }
+}
+
+@media (min-width: 1360px) {
+  .dock[data-area='input'] {
+    width: calc(var(--col-left-3) + 2 * 24px);
+    padding-inline: 24px;
+  }
+}
+
+.region {
+  width: 100%;
+  max-width: var(--toast-max);
+}
+
+.toast {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sp-1) var(--sp-3);
+  padding: var(--sp-2) var(--target) var(--sp-2) var(--sp-4);
+  margin-bottom: var(--btn-depth-size);
+  color: var(--on-ink);
+  pointer-events: auto;
+  animation: toast-in var(--dur-toast-in) var(--ease-out) both;
+}
+
+/* Pseudo-elements instead of box-shadow, to keep the notched corners */
+.toast::before,
+.toast::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+}
+
+.toast::before {
+  inset: var(--btn-depth-size) 0 calc(-1 * var(--btn-depth-size)) 0;
+  background: var(--btn-depth);
+  clip-path: var(--notch-4);
+}
+
+.toast::after {
+  inset: 0;
+  background: var(--ink);
+  clip-path: var(--notch-4);
+}
+
+.toast[data-leaving] {
+  animation: toast-out var(--dur-toast-out) linear both;
+}
+
+.message {
+  flex: 1 1 14em;
+  min-width: 0;
+  padding-block: var(--sp-2);
+  font: var(--t-body);
+}
+
+/* Lets the actions share the message's line when they fit, which keeps the toast short on phones */
+@media (max-width: 599px) {
+  .message {
+    flex-basis: 8em;
+  }
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-1) var(--sp-3);
+}
+
+.action {
+  min-height: var(--target);
+  min-width: var(--target);
+  margin: 0;
+  padding: 0 var(--sp-1);
+  border: 0;
+  background: none;
+  color: var(--on-ink);
+  font: var(--t-body);
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.25em;
+}
+
+.action:focus-visible {
+  outline-color: var(--on-ink);
+}
+
+.close {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(calc(var(--sp-2) * var(--move)));
+  }
+}
+
+@keyframes toast-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@media print {
+  .dock {
+    display: none;
+  }
+}

@@ -1,0 +1,4 @@
+.message {
+  font: var(--t-row);
+  max-width: var(--measure);
+}

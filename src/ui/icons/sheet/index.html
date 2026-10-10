@@ -1,0 +1,20 @@
+<!doctype html>
+<!--
+  Development page that shows every icon and item image. Open it with the Vite dev server:
+    npm run dev
+    http://localhost:5173/src/ui/icons/sheet/ (add ?theme=light or ?theme=dark to fix the theme)
+  IconSheet.tsx draws the page from the data in src/ui/icons, so icon changes show up here as well.
+  Item images (official Minecraft assets in src/ui/icons/items, sources in SOURCES.md there) are shown at 16, 32 and 64px,
+  with and without the enchantment glint. The page is not part of the production build.
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Icon sheet</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="./main.tsx"></script>
+  </body>
+</html>

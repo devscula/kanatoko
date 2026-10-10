@@ -1,0 +1,34 @@
+.banner {
+  composes: frame4 from '../../styles/pixel.module.css';
+  --frame-fill: var(--danger-bg);
+  --frame-border: var(--danger);
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-3);
+  padding: var(--sp-3) var(--card-pad);
+}
+
+.icon {
+  flex: none;
+  margin-top: 6px;
+  color: var(--danger);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--sp-2);
+  min-width: 0;
+}
+
+.text {
+  font: var(--t-body);
+  max-width: var(--measure);
+}
+
+@media print {
+  .banner button {
+    display: none;
+  }
+}

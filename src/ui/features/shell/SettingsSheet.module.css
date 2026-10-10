@@ -1,0 +1,86 @@
+.sections {
+  display: flex;
+  flex-direction: column;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-1);
+  padding-block: var(--sp-4);
+  border-top: var(--border) solid var(--line);
+}
+
+.history {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+  padding-bottom: var(--sp-4);
+}
+
+.historyButton {
+  flex: 1 1 auto;
+  justify-content: flex-start;
+  font: var(--t-small);
+  font-weight: 700;
+}
+
+.locked {
+  margin-bottom: var(--sp-3);
+  padding: var(--sp-2) var(--sp-3);
+  background: var(--enchant-bg);
+  border-left: var(--rail) solid var(--enchant);
+  font: var(--t-small);
+}
+
+.heading {
+  font: var(--t-body);
+  font-weight: 700;
+}
+
+.choices {
+  gap: var(--sp-2);
+}
+
+.choice {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-1) var(--sp-3);
+}
+
+.choiceLabel {
+  font: var(--t-body);
+  font-weight: 700;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+  margin-top: var(--sp-1);
+}
+
+.note {
+  color: var(--muted);
+  font: var(--t-small);
+  max-width: var(--measure);
+}
+
+.data {
+  gap: var(--sp-1);
+}
+
+.withIcon {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+}
+
+.heading,
+.choiceLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+}

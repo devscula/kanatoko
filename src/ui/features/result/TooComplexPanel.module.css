@@ -1,0 +1,106 @@
+.tooComplex {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+}
+
+.panel {
+  composes: frame4 from '../../styles/pixel.module.css';
+  --frame-fill: var(--surface);
+  --frame-border: var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+  padding: var(--card-pad);
+}
+
+.title {
+  font: var(--t-heading);
+}
+
+.remedy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--sp-2);
+}
+
+.meterBlock {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-1);
+}
+
+.meterLabel {
+  font: var(--t-small);
+  font-weight: 700;
+}
+
+.meterRow {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-5);
+}
+
+.meter {
+  position: relative;
+  flex: 1 1 8rem;
+  min-width: 0;
+  height: var(--sp-5);
+  padding: var(--px);
+  background: var(--slot);
+}
+
+/* Not --xp, since this is not a level cost, and not the error color for the work over the limit, since nothing failed */
+.fill {
+  position: absolute;
+  inset: var(--px);
+  background:
+    linear-gradient(90deg, var(--ink) 0 calc(var(--limit-at) * 100%), transparent 0),
+    repeating-linear-gradient(135deg, var(--edge) 0 var(--px), transparent var(--px) calc(var(--px) * 3));
+}
+
+.limit {
+  position: absolute;
+  top: calc(-1 * var(--sp-1));
+  bottom: calc(-1 * var(--sp-1));
+  left: calc(var(--px) + (100% - 2 * var(--px)) * var(--limit-at));
+  width: var(--px);
+  background: var(--ink);
+}
+
+/* With hundreds of books the ratio runs past twenty digits, so it wraps rather than squeezing the meter */
+.ratio {
+  flex: 0 1 auto;
+  min-width: 0;
+  font: var(--t-small);
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+/* Under the mark, on whichever side keeps it inside the meter */
+.limitLabel {
+  position: absolute;
+  top: calc(100% + var(--px));
+  right: 0;
+  color: var(--muted);
+  font: var(--t-caption);
+  white-space: nowrap;
+}
+
+.meter[data-limit-start] .limitLabel {
+  right: auto;
+  left: 0;
+}
+
+.text {
+  font: var(--t-body);
+  max-width: var(--measure);
+}
+
+.note {
+  color: var(--muted);
+  font: var(--t-small);
+  max-width: var(--measure);
+}

@@ -1,0 +1,596 @@
+.panel {
+  container-type: inline-size;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+  min-width: 0;
+}
+
+/* As tall as the steps column's header row, so the two headings line up */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-2);
+  min-height: var(--target);
+}
+
+.heading {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font: var(--t-heading);
+}
+
+.count {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-3);
+  margin: 0;
+}
+
+.countPart {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font: var(--t-pixel-16);
+  font-variant-numeric: tabular-nums;
+}
+
+/* No item chosen */
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--sp-3);
+}
+
+.emptySlot {
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-2);
+  width: 100%;
+  min-height: 176px;
+  padding: var(--sp-4);
+  border: 2px solid var(--edge);
+  background: var(--surface);
+  box-shadow: 0 3px 0 var(--line);
+  color: var(--ink);
+  font: var(--t-heading);
+  cursor: pointer;
+}
+
+.emptySlot:hover {
+  border-color: var(--enchant);
+  background: var(--enchant-bg);
+  color: var(--enchant);
+}
+
+.emptySlot:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.emptyPlus {
+  border-radius: var(--radius-btn);
+  display: grid;
+  place-items: center;
+  width: 80px;
+  height: 80px;
+  background: var(--slot);
+  box-shadow:
+    inset 3px 3px 0 var(--slot-shadow),
+    inset -3px -3px 0 var(--slot-light);
+  color: var(--ink);
+}
+
+.emptyLabel {
+  font: var(--t-heading);
+}
+
+/* Item to enchant */
+.target {
+  position: relative;
+  display: grid;
+  grid-template-columns: 112px minmax(0, 1fr);
+  gap: var(--sp-4);
+  padding: var(--sp-3);
+  border: 3px solid var(--ink);
+  background: var(--surface);
+  box-shadow: 0 4px 0 var(--edge);
+}
+
+.targetSlot {
+  display: grid;
+  place-items: center;
+  width: 112px;
+  height: 112px;
+  padding: 0;
+  border: 0;
+  border-radius: 10px;
+  background: var(--slot);
+  box-shadow:
+    inset 3px 3px 0 var(--slot-shadow),
+    inset -3px -3px 0 var(--slot-light);
+  cursor: pointer;
+}
+
+.targetSlot:hover {
+  box-shadow:
+    inset 0 0 0 3px var(--enchant),
+    inset 3px 3px 0 var(--slot-shadow);
+}
+
+.targetSlot:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.targetBody {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--sp-2);
+  min-width: 0;
+}
+
+.targetHead {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--sp-2);
+}
+
+.targetName {
+  margin: 0;
+  padding-top: var(--sp-1);
+  font: var(--t-title);
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.targetActions {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  margin: calc(-1 * var(--sp-1)) calc(-1 * var(--sp-1)) 0 0;
+}
+
+.targetChips {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 12px;
+  min-width: 0;
+}
+
+.usesBadge {
+  border-radius: var(--radius-pill);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 28px;
+  padding: 0 8px;
+  border: 2px solid var(--pwp);
+  color: var(--pwp);
+  font: var(--t-pixel-16);
+  cursor: help;
+}
+
+.usesBadge:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+/* Books and spares */
+.capsules {
+  display: flex;
+  flex-wrap: wrap;
+  /* Leaves room for the remove button that overhangs each capsule's top right corner */
+  gap: 12px;
+  margin: 0;
+  padding: var(--sp-1) 0 0;
+  list-style: none;
+}
+
+.capsuleItem {
+  position: relative;
+  display: inline-flex;
+  animation: block-in 180ms var(--ease-out) both;
+}
+
+.capsuleItem[data-leaving] {
+  animation: block-out 160ms ease-in forwards;
+  pointer-events: none;
+}
+
+@keyframes block-in {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+}
+
+@keyframes block-out {
+  to {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+}
+
+:root[data-motion='reduce'] .capsuleItem {
+  animation: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root:not([data-motion='full']) .capsuleItem {
+    animation: none;
+  }
+}
+
+.capsule {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 40px;
+  /* 6px on the left keeps the corners of the image inside the rounded end */
+  padding: 2px 14px 2px 6px;
+  border: 2px solid var(--edge);
+  border-radius: var(--radius-pill);
+  background: var(--surface);
+  box-shadow: 0 2px 0 var(--line);
+  color: var(--ink);
+  font: var(--t-small);
+  font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.capsule:hover {
+  border-color: var(--enchant);
+  background: var(--enchant-bg);
+}
+
+.capsule:active {
+  transform: translateY(1px);
+  box-shadow: 0 1px 0 var(--line);
+}
+
+.capsule:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.capsule[data-warn] {
+  border-color: var(--danger);
+}
+
+.capsuleText [data-warn] {
+  color: var(--danger);
+  text-decoration: line-through;
+}
+
+.capsuleUses {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding-left: 6px;
+  border-left: 1px solid var(--line);
+  color: var(--pwp);
+  font: var(--t-pixel-16);
+}
+
+.capsuleItem:hover .chipX,
+.capsuleItem:focus-within .chipX {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Anvil uses menu */
+.menuWrap {
+  position: relative;
+  flex: none;
+}
+
+.menu {
+  position: absolute;
+  top: calc(100% + 4px);
+  right: 0;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  min-width: 232px;
+  padding: var(--sp-3);
+  border: 2px solid var(--ink);
+  background: var(--surface);
+  box-shadow: 0 4px 0 var(--edge);
+}
+
+.menuLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font: var(--t-small);
+  font-weight: 700;
+}
+
+.clearAll {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 30px;
+  padding: 2px 10px 2px 6px;
+  border: 2px solid var(--line);
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--muted);
+  font: var(--t-small);
+  font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.clearAll[data-large] {
+  min-height: 40px;
+}
+
+.clearAll:hover {
+  border-color: var(--danger);
+  color: var(--danger);
+}
+
+.clearAll:active {
+  transform: translateY(1px);
+}
+
+.clearAll:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+/* Add buttons are actions, not things in the anvil: the dashed outline and squarer corners keep them from reading
+   as one more capsule */
+.addRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+}
+
+.addButton {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 40px;
+  padding: 2px 12px 2px 6px;
+  border: 2px dashed var(--edge);
+  border-radius: var(--radius-btn);
+  background: transparent;
+  color: var(--ink);
+  font: var(--t-small);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.addButton[data-icon-only] {
+  padding-right: 6px;
+}
+
+.addButton:hover {
+  border-style: solid;
+  border-color: var(--enchant);
+  background: var(--enchant-bg);
+  color: var(--enchant);
+}
+
+.addButton:active {
+  transform: translateY(1px);
+}
+
+.addButton:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.addIcon {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+}
+
+.addLabel {
+  white-space: nowrap;
+}
+
+.bulkIcons {
+  position: relative;
+  display: inline-flex;
+}
+
+.bulkIcons > * + * {
+  margin-left: -20px;
+}
+
+/* components/base/TooltipLayer renders the tooltip from data-tip. */
+.tip {
+  position: relative;
+}
+
+.rename {
+  padding-top: var(--sp-3);
+  border-top: 1px solid var(--line);
+}
+
+/* Chips for enchantments already on the item */
+.chipWrap {
+  position: relative;
+  display: inline-flex;
+}
+
+.chipButton,
+.chipStatic {
+  border-radius: var(--radius-pill);
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  min-height: 30px;
+  padding: 2px 10px;
+  border: 2px solid var(--enchant);
+  background: var(--enchant-bg);
+  color: var(--enchant);
+  font: var(--t-small);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.chipButton {
+  padding-right: 4px;
+  cursor: pointer;
+}
+
+.chipButton:hover,
+.chipButton[aria-expanded='true'] {
+  background: var(--enchant);
+  color: var(--on-ink);
+}
+
+.chipButton:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.chipCaret {
+  opacity: 0.8;
+  transform: rotate(90deg);
+}
+
+.chipX {
+  border-radius: var(--radius-pill);
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: 2px solid var(--ink);
+  background: var(--surface);
+  color: var(--ink);
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 80ms;
+}
+
+.chipWrap:hover .chipX,
+.chipWrap:focus-within .chipX {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.chipX:hover {
+  border-color: var(--danger);
+  background: var(--danger);
+  color: #fff;
+}
+
+.chipX:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+@media (hover: none) {
+  .chipX {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+/* Level buttons, shown inside the dark popover */
+.levels {
+  display: inline-flex;
+  gap: 4px;
+}
+
+.level {
+  border-radius: 6px;
+  min-width: 36px;
+  min-height: 36px;
+  padding: 0 6px;
+  border: 2px solid var(--tip-muted);
+  background: transparent;
+  color: var(--tip-title);
+  font: var(--t-pixel-16);
+  cursor: pointer;
+}
+
+.level:hover {
+  border-color: var(--tip-title);
+}
+
+.level[aria-checked='true'] {
+  border-color: var(--tip-edge);
+  background: var(--tip-edge);
+  color: #fff;
+}
+
+.level:focus-visible {
+  outline: 2px solid var(--tip-title);
+  outline-offset: 2px;
+}
+
+.addMark {
+  position: absolute;
+  right: -6px;
+  bottom: -2px;
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 6px;
+  background: var(--ink);
+  color: var(--on-ink);
+  pointer-events: none;
+}
+
+.addButton:hover .addMark {
+  background: var(--enchant);
+}
+
+.itemMenu {
+  width: min(600px, calc(100vw - 16px));
+}
+
+.itemMenuBody {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: auto;
+  padding: var(--sp-3) var(--sp-4) var(--sp-4);
+}
+
+/* Narrow input column of the two-column layout (below about 1200px): a smaller slot leaves room for the name.
+   64px keeps the 16px item art at a whole-number scale. */
+@container (max-width: 289px) {
+  .target {
+    grid-template-columns: 80px minmax(0, 1fr);
+    gap: var(--sp-3);
+  }
+
+  .targetSlot {
+    width: 80px;
+    height: 80px;
+  }
+
+  .targetSlot > [data-item-image] {
+    width: 64px;
+    height: 64px;
+  }
+}

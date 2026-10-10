@@ -1,0 +1,62 @@
+.disclosure {
+  display: flex;
+  flex-direction: column;
+}
+
+.trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  align-self: flex-start;
+  min-height: var(--target);
+  margin: 0;
+  padding: 0 var(--sp-1);
+  border: 0;
+  background: none;
+  color: var(--ink);
+  font: var(--t-body);
+  font-weight: 700;
+  text-align: start;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.25em;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.trigger:hover {
+  text-decoration-thickness: 2px;
+}
+
+.meta {
+  color: var(--muted);
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.chevron {
+  transition: transform var(--dur-disclose) steps(2, end);
+}
+
+.trigger[aria-expanded='true'] .chevron {
+  transform: rotate(90deg);
+}
+
+/* Animating the row from 0fr to 1fr reaches the content height without measuring it */
+.panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows var(--dur-disclose) var(--ease-out);
+}
+
+.disclosure[data-open] > .panel {
+  grid-template-rows: 1fr;
+}
+
+.inner {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.disclosure:not([data-open]) > .panel > .inner {
+  visibility: hidden;
+}

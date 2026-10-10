@@ -1,0 +1,212 @@
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+}
+
+.chip {
+  border-radius: var(--radius-pill);
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-1);
+  min-height: var(--target);
+  margin: 0;
+  padding: 0 var(--sp-3);
+  border: 0;
+  background: none;
+  color: var(--ink);
+  font: var(--t-small);
+  font-weight: 700;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.chip::before,
+.chip::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.chip::before {
+  inset: 0;
+  background: var(--edge);
+  border-radius: var(--radius-pill);
+}
+
+.chip::after {
+  inset: var(--border);
+  background: var(--surface);
+  border-radius: var(--radius-pill);
+}
+
+.chip:hover::after {
+  background: var(--surface-2);
+}
+
+.chip:active {
+  transform: translateY(1px);
+}
+
+.after {
+  display: flex;
+  align-items: center;
+}
+
+.assumption {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-1);
+  margin: 0;
+  color: var(--muted);
+  font: var(--t-small);
+}
+
+.more {
+  min-height: var(--target);
+  margin: calc(-1 * var(--sp-3)) 0;
+  padding: 0 var(--sp-1);
+  border: 0;
+  background: none;
+  color: var(--ink);
+  font: var(--t-small);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+
+.more:hover {
+  text-decoration-thickness: 2px;
+}
+
+.rules {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  padding-left: var(--sp-4);
+  list-style: disc;
+  font: var(--t-small);
+}
+
+@media (forced-colors: active) {
+  .chip {
+    border: var(--border) solid ButtonText;
+  }
+}
+
+@media print {
+  .chip {
+    min-height: 0;
+    padding: 0;
+  }
+
+  .chip::before,
+  .chip::after {
+    display: none;
+  }
+
+  .more {
+    display: none;
+  }
+}
+
+/* A mouse does not need the touch target size, and the row stays compact */
+@media (pointer: fine) {
+  .chip {
+    min-height: var(--target-fine);
+    padding: 0 var(--sp-2);
+  }
+
+  .chips {
+    gap: var(--sp-1);
+  }
+}
+
+.caret {
+  transform: rotate(90deg);
+  opacity: 0.7;
+}
+
+.choiceMenu {
+  width: min(320px, calc(100vw - 16px));
+  padding: var(--sp-2);
+}
+
+.choiceTitle {
+  margin: 0;
+  padding: 2px var(--sp-2) var(--sp-1);
+  color: var(--muted);
+  font: var(--t-caption);
+  font-weight: 700;
+}
+
+.choices {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.choice {
+  display: grid;
+  grid-template-columns: 16px 16px minmax(0, 1fr);
+  align-items: center;
+  gap: var(--sp-2);
+  width: 100%;
+  min-height: var(--target);
+  padding: 4px var(--sp-2);
+  border: 0;
+  border-radius: var(--radius-btn);
+  background: none;
+  color: var(--ink);
+  font: var(--t-small);
+  text-align: start;
+  cursor: pointer;
+}
+
+.choice:hover {
+  background: var(--surface-2);
+}
+
+.choice[aria-checked='true'] {
+  background: var(--enchant-bg);
+  color: var(--enchant);
+  font-weight: 700;
+}
+
+.choice:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: -2px;
+}
+
+.choiceMark {
+  display: grid;
+  place-items: center;
+}
+
+.choiceText {
+  display: flex;
+  flex-direction: column;
+}
+
+.choiceNote {
+  color: var(--muted);
+  font: var(--t-caption);
+  font-weight: 400;
+}
+
+.choiceLocked {
+  margin: 0 0 var(--sp-1);
+  padding: 0 var(--sp-2);
+  color: var(--muted);
+  font: var(--t-caption);
+}
+
+.choice:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}

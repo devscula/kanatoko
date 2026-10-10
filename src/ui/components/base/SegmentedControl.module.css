@@ -1,0 +1,107 @@
+/* The selected option gets an --enchant border, as the selected tab does; an --edge border would make it look like a
+   secondary button, something to press */
+
+.group {
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  max-width: 100%;
+  gap: var(--px);
+  padding: var(--px);
+  min-height: calc(var(--target) + 2 * var(--px));
+  border-radius: calc(var(--radius-btn) + var(--px));
+}
+
+.group::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--slot);
+  border-radius: calc(var(--radius-btn) + var(--px));
+}
+
+.block {
+  display: flex;
+  width: 100%;
+}
+
+.block .option {
+  flex: 1 1 0;
+}
+
+.option {
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-2);
+  min-width: var(--target);
+  min-height: var(--target);
+  margin: 0;
+  padding: 0 var(--sp-3);
+  border: 0;
+  background: none;
+  color: var(--ink);
+  font: var(--t-small);
+  font-weight: 700;
+  text-wrap: balance;
+  overflow-wrap: break-word;
+  -webkit-tap-highlight-color: transparent;
+  border-radius: var(--radius-btn);
+}
+
+.option::before,
+.option::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.option[aria-checked='true']::before {
+  inset: 0;
+  background: var(--enchant);
+  border-radius: var(--radius-btn);
+}
+
+.option[aria-checked='true']::after {
+  inset: var(--border);
+  background: var(--surface);
+  border-radius: calc(var(--radius-btn) - var(--border));
+}
+
+.option[aria-checked='false']:hover:not(:disabled, [aria-disabled='true'])::after {
+  inset: 0;
+  background: color-mix(in srgb, var(--surface) 45%, transparent);
+  border-radius: var(--radius-btn);
+}
+
+.option:focus-visible {
+  z-index: 1;
+}
+
+.option:disabled,
+.option[aria-disabled='true'] {
+  color: var(--muted);
+}
+
+@media (forced-colors: active) {
+  .option[aria-checked='true'] {
+    outline: 2px solid Highlight;
+    outline-offset: -2px;
+  }
+}
+
+/* As tall as the buttons beside it, so that the control fits in the 48px header */
+@media (pointer: fine) {
+  .group {
+    min-height: calc(var(--target-fine) + 2 * var(--px));
+  }
+
+  .option {
+    min-width: var(--target-fine);
+    min-height: var(--target-fine);
+  }
+}

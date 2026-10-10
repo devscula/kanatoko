@@ -1,0 +1,96 @@
+/*
+ * The glint follows the game's shaders/core/glint.fsh and its blend state in client.jar. The texture is tiled at 10
+ * degrees, scrolls slowly and scales smoothly ("blur": true in its .mcmeta). The game draws it on the faces of the same
+ * model, so here the item PNG is its mask. The blend is additive, color = base + (texture * strength)^2 (SRC_COLOR, ONE;
+ * Glint Strength defaults to 75%): two copies of the texture multiplied give the square, which is added with
+ * plus-lighter at opacity 0.75^2 = 0.5625.
+ */
+
+.image {
+  position: relative;
+  isolation: isolate;
+  display: inline-block;
+  flex: none;
+  vertical-align: middle;
+}
+
+/* Zero specificity, so that a caller's class can override the size */
+:where(.image) {
+  width: var(--item-size);
+  height: var(--item-size);
+}
+
+.img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  image-rendering: pixelated;
+}
+
+.glint {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  /* Keeps the scaled mask sharp, or the glint would bleed past the item's edges */
+  image-rendering: pixelated;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  opacity: 0.5625;
+  /* Fallback without plus-lighter: screen is close to additive when the added colors are dark */
+  mix-blend-mode: screen;
+}
+
+@supports (mix-blend-mode: plus-lighter) {
+  .glint {
+    mix-blend-mode: plus-lighter;
+  }
+}
+
+/*
+ * In item sizes: a texture tile is 4, and one loop moves the surface one tile up and right, so the loop does not jump.
+ * The surface reaches 4.1 past the left and bottom edges and 0.1 past the top and right (5.2 per side), enough to cover
+ * the item while moving and rotated. The item's center, the rotation origin, is at (4.6, 0.6) from its top left.
+ * Percentages let the glint follow a caller's size.
+ */
+.glint::before {
+  content: '';
+  position: absolute;
+  top: -10%;
+  left: -410%;
+  width: 520%;
+  height: 520%;
+  background-image: url('./items/enchanted_glint_item.png'), url('./items/enchanted_glint_item.png');
+  background-size: 76.9231% 76.9231%; /* 4 / 5.2 */
+  background-blend-mode: multiply;
+  image-rendering: auto;
+  transform-origin: 88.4615% 11.5385%; /* 4.6 / 5.2, 0.6 / 5.2 */
+  transform: rotate(-10deg);
+  /* --glint-delay is minus the page age, which keeps every glint in step */
+  animation: glint var(--dur-glint) linear var(--glint-delay, 0s) infinite;
+}
+
+@keyframes glint {
+  to {
+    transform: rotate(-10deg) translate(76.9231%, -76.9231%);
+  }
+}
+
+/* With reduced motion the glint stays but stops moving */
+@media (prefers-reduced-motion: reduce) {
+  :global(html:not([data-motion='full'])) .glint::before {
+    animation: none;
+  }
+}
+
+:global(html[data-motion='reduce']) .glint::before {
+  animation: none;
+}
+
+@media print {
+  .glint::before {
+    animation: none;
+  }
+}

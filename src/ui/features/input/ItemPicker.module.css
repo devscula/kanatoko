@@ -1,0 +1,183 @@
+.picker {
+  container: picker / inline-size;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+  min-width: 0;
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.groupLabel {
+  font: var(--t-small);
+  font-weight: 700;
+}
+
+.grid {
+  /* Japanese names run about 72px, so a 320px screen fits only 3 columns */
+  --cols: 3;
+  /* Icon sizes stay at multiples of 16px */
+  --tile-icon: var(--sp-6);
+  display: grid;
+  grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
+  gap: var(--sp-2);
+}
+
+@container picker (min-width: 340px) {
+  .grid {
+    --cols: 4;
+  }
+}
+
+@container picker (min-width: 440px) {
+  .grid {
+    --cols: 5;
+    --tile-icon: var(--sp-7);
+  }
+}
+
+@container picker (min-width: 540px) {
+  .grid {
+    --cols: 6;
+  }
+}
+
+.first .grid {
+  --tile-icon: var(--sp-6);
+}
+
+@container picker (min-width: 800px) {
+  .first .grid {
+    --tile-icon: var(--sp-8);
+    grid-template-columns: repeat(auto-fill, minmax(8.5rem, 1fr));
+  }
+
+  .first .group {
+    display: grid;
+    grid-template-columns: 5rem 1fr;
+    align-items: start;
+  }
+}
+
+.tile {
+  composes: frameRound from '../../styles/pixel.module.css';
+  --frame-border: var(--line);
+  --frame-fill: var(--surface);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--sp-1);
+  min-width: var(--target);
+  min-height: var(--target);
+  margin: 0;
+  padding: var(--sp-2) var(--sp-1);
+  border: 0;
+  background: none;
+  color: var(--ink);
+  text-align: center;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.tile:hover {
+  --frame-border: var(--edge);
+  --frame-fill: var(--surface-2);
+}
+
+.tile:active {
+  transform: translateY(1px);
+}
+
+.tile[aria-pressed='true'] {
+  --frame-border: var(--enchant);
+  --frame-fill: var(--enchant-bg);
+}
+
+.tileIcon {
+  width: var(--tile-icon);
+  height: var(--tile-icon);
+}
+
+.tileName {
+  font: var(--t-caption);
+  /* Break only at <wbr> and spaces, never inside a word; body's overflow-wrap handles anything that still does not fit */
+  word-break: keep-all;
+}
+
+.check {
+  position: absolute;
+  top: var(--sp-1);
+  right: var(--sp-1);
+  color: var(--enchant);
+}
+
+.bookHint {
+  grid-column: 2 / -1;
+  align-self: center;
+  color: var(--muted);
+  font: var(--t-small);
+}
+
+/* Items that only take curses */
+.other {
+  gap: var(--sp-2);
+}
+
+.otherBody {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  padding-top: var(--sp-2);
+}
+
+.otherHint {
+  max-width: var(--measure);
+  font: var(--t-small);
+}
+
+.none {
+  color: var(--muted);
+  font: var(--t-small);
+}
+
+@media (forced-colors: active) {
+  .tile {
+    border: 2px solid ButtonText;
+  }
+
+  .tile[aria-pressed='true'] {
+    border-color: Highlight;
+  }
+}
+
+.otherSummary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+}
+
+.curseIcon {
+  color: var(--danger);
+}
+
+.dropdown {
+  gap: var(--sp-3);
+}
+
+.dropdown .grid {
+  --cols: 5;
+  --tile-icon: var(--sp-6);
+  gap: 6px;
+}
+
+@container picker (min-width: 440px) {
+  .dropdown .grid {
+    --cols: 7;
+    --tile-icon: 32px;
+  }
+}

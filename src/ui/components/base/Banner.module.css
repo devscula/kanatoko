@@ -1,0 +1,99 @@
+.banner {
+  position: relative;
+  background: var(--surface);
+  border-bottom: var(--border) solid var(--line);
+}
+
+.banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: var(--rail);
+  background: var(--edge);
+}
+
+.banner[data-tone='shared'] {
+  background: var(--enchant-bg);
+}
+
+.banner[data-tone='shared']::before {
+  background: var(--enchant);
+}
+
+.banner:focus {
+  outline: none;
+}
+
+.inner {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-3);
+  max-width: var(--workbench-max);
+  margin: 0 auto;
+  padding: var(--sp-3) var(--gutter);
+}
+
+.icon {
+  flex: none;
+  margin-top: var(--sp-1);
+  color: var(--muted);
+}
+
+.banner[data-tone='shared'] .icon {
+  color: var(--enchant);
+}
+
+.content {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sp-2) var(--sp-5);
+  min-width: 0;
+}
+
+.text {
+  display: flex;
+  flex: 1 1 24em;
+  flex-direction: column;
+  gap: var(--sp-1);
+  max-width: 60em;
+}
+
+.message,
+.note {
+  font: var(--t-small);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+}
+
+.close {
+  flex: none;
+  min-height: var(--target);
+  min-width: var(--target);
+  margin: calc(-1 * var(--sp-2)) 0;
+  padding: 0 var(--sp-1);
+  border: 0;
+  background: none;
+  color: var(--ink);
+  font: var(--t-small);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+
+.close:hover {
+  text-decoration-thickness: 2px;
+}
+
+@media print {
+  .banner {
+    display: none;
+  }
+}

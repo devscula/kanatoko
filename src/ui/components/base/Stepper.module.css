@@ -1,0 +1,39 @@
+.stepper {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+}
+
+.value {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  place-items: center;
+  min-width: calc(var(--target) + var(--sp-4));
+  min-height: var(--target);
+  padding: 0 var(--sp-2);
+  /* Not DotGothic16, which is kept for level chips, letter tags, figures and costs */
+  font: var(--t-row);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  cursor: default;
+}
+
+.value::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--slot);
+  border-radius: var(--radius-btn);
+}
+
+.value[aria-readonly='true'] {
+  color: var(--muted);
+}
+
+@media (forced-colors: active) {
+  .value {
+    border: var(--border) solid CanvasText;
+  }
+}

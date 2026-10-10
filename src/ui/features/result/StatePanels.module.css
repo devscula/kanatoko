@@ -1,0 +1,80 @@
+.card {
+  composes: frame4 from '../../styles/pixel.module.css';
+  --frame-fill: var(--surface);
+  --frame-border: var(--line);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--sp-4);
+  padding: var(--card-pad);
+}
+
+.message {
+  font: var(--t-body);
+  max-width: var(--measure);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+}
+
+.anvil {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-2);
+  padding-block: var(--sp-2);
+}
+
+.anvilPart {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-2);
+}
+
+.anvilSlot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-1);
+}
+
+/* Centered on the slots */
+.joiner {
+  flex: none;
+  margin-top: calc(var(--slot-card) / 2 - 12px);
+  color: var(--muted);
+}
+
+.caption {
+  color: var(--muted);
+  font: var(--t-caption);
+  white-space: nowrap;
+}
+
+/* Only an actual failure gets the danger frame; invalid input does not */
+.error {
+  --frame-fill: var(--danger-bg);
+  --frame-border: var(--danger);
+}
+
+.errorText {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-2);
+  font: var(--t-body);
+  max-width: var(--measure);
+}
+
+.errorIcon {
+  flex: none;
+  margin-top: 6px;
+  color: var(--danger);
+}
+
+.repeat {
+  display: block;
+  margin-top: var(--sp-1);
+  font: var(--t-small);
+}

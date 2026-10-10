@@ -1,0 +1,223 @@
+.card {
+  composes: frame4 from '../../styles/pixel.module.css';
+  --frame-fill: var(--surface);
+  --frame-border: var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+  padding: var(--card-pad);
+}
+
+.staleBadge {
+  align-self: flex-start;
+  padding: 0 var(--sp-2);
+  background: var(--surface-2);
+  color: var(--muted);
+  font: var(--t-small);
+  font-weight: 700;
+}
+
+.top {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas:
+    'figures'
+    'maxline';
+  gap: var(--sp-4);
+}
+
+.figures {
+  grid-area: figures;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: auto auto;
+  gap: var(--sp-1) var(--sp-3);
+}
+
+/* The figures share a label row and a number row, so the numbers stay level when a label wraps */
+.figure {
+  display: grid;
+  grid-row: span 2;
+  grid-template-rows: subgrid;
+  align-content: start;
+  gap: var(--sp-1);
+  min-width: 0;
+}
+
+.figureLabel {
+  color: var(--muted);
+  font: var(--t-small);
+  font-weight: 700;
+}
+
+.figureValue {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-1);
+  margin: 0;
+  color: var(--ink);
+}
+
+.figure[data-xp] .figureValue {
+  color: var(--xp);
+}
+
+.figure[data-over] .figureValue {
+  color: var(--danger);
+}
+
+.overIcon {
+  display: inline-block;
+  margin-right: var(--sp-1);
+  vertical-align: 0.125em;
+}
+
+.pixel48 {
+  font: var(--t-pixel-48);
+  font-variant-numeric: tabular-nums;
+}
+
+.unit {
+  color: var(--muted);
+  font: var(--t-small);
+}
+
+.card[data-stale] .figureValue,
+.card[data-stale] .figure[data-xp] .figureValue,
+.card[data-stale] .number,
+.card[data-stale] .pwp {
+  color: var(--muted);
+}
+
+.maxLine {
+  grid-area: maxline;
+  font: var(--t-body);
+  max-width: var(--measure);
+}
+
+.details {
+  display: grid;
+  /* The 45% cap keeps the values from wrapping one character per line at 200% text size */
+  grid-template-columns: minmax(0, min(8.5em, 45%)) minmax(0, 1fr);
+  align-items: baseline;
+  gap: var(--sp-2) var(--sp-4);
+  padding-top: var(--sp-3);
+  border-top: var(--border) solid var(--line);
+}
+
+.detail {
+  display: contents;
+}
+
+.detail dt {
+  font: var(--t-body);
+  word-break: auto-phrase;
+}
+
+.detail dd {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-1);
+  min-width: 0;
+  margin: 0;
+}
+
+.detailValue {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 var(--sp-2);
+}
+
+.number {
+  font: var(--t-body);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.pwp {
+  color: var(--pwp);
+}
+
+.sub {
+  color: var(--muted);
+  font: var(--t-small);
+}
+
+.line {
+  font: var(--t-small);
+  max-width: var(--measure);
+}
+
+.notices {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.notice {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--sp-2);
+}
+
+.noticeText {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-2);
+  font: var(--t-small);
+  max-width: var(--measure);
+}
+
+.noticeIcon {
+  flex: none;
+  margin-top: 3px;
+}
+
+.noticeActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+}
+
+.danger {
+  composes: frame2 from '../../styles/pixel.module.css';
+  --frame-fill: var(--danger-bg);
+  --frame-border: var(--danger);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--sp-3);
+  padding: var(--sp-3) var(--sp-4);
+}
+
+.danger .noticeIcon {
+  color: var(--danger);
+}
+
+@media (max-width: 359px) {
+  .details {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: var(--sp-1);
+  }
+
+  .detail + .detail > dt {
+    margin-top: var(--sp-2);
+  }
+}
+
+@media print {
+  .card {
+    break-inside: avoid;
+  }
+
+  .pixel48 {
+    font: var(--t-heading);
+  }
+
+  .overIcon {
+    width: var(--sp-4);
+    height: var(--sp-4);
+  }
+}

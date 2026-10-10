@@ -1,0 +1,103 @@
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+}
+
+/* Border and fill are drawn on pseudo-elements so the corner notch does not clip the focus outline */
+.field {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+}
+
+.field::before,
+.field::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.field::before {
+  inset: 0;
+  background: var(--edge);
+  clip-path: var(--notch-2);
+}
+
+.field::after {
+  inset: var(--border);
+  background: var(--surface);
+}
+
+.field:focus-within {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.input {
+  flex: 1 1 auto;
+  min-width: 0;
+  min-height: var(--target);
+  margin: 0;
+  padding: var(--sp-2) var(--sp-3);
+  border: 0;
+  background: none;
+  color: var(--ink);
+  font: var(--t-small);
+  text-overflow: ellipsis;
+}
+
+.input:focus,
+.input:focus-visible {
+  outline: none;
+}
+
+.input::selection {
+  background: var(--enchant-bg);
+  color: var(--ink);
+}
+
+.text {
+  min-height: calc(var(--target) * 4);
+  resize: vertical;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.copyRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sp-2) var(--sp-3);
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font: var(--t-small);
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.more {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--sp-2);
+}
+
+.note {
+  max-width: var(--measure);
+  font: var(--t-small);
+  color: var(--muted);
+  word-break: auto-phrase;
+}
+
+@media (min-width: 600px) {
+  .more {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}

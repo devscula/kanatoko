@@ -1,0 +1,25 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-6);
+}
+
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.item {
+  min-width: 0;
+}
+
+@media print {
+  .list {
+    gap: var(--sp-4);
+  }
+
+  .steps {
+    gap: 0;
+  }
+}

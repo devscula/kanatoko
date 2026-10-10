@@ -1,0 +1,79 @@
+/* The face and bevel are drawn on a pseudo-element so that the clip-path never applies to the element itself */
+
+.slot {
+  position: relative;
+  isolation: isolate;
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  vertical-align: middle;
+  inline-size: var(--slot-size);
+  block-size: var(--slot-size);
+}
+
+.s36 {
+  --slot-size: 36px;
+}
+
+.s72 {
+  --slot-size: 72px;
+}
+
+.slot::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: var(--slot-face);
+  box-shadow:
+    inset var(--px) var(--px) 0 var(--slot-lo),
+    inset calc(-1 * var(--px)) calc(-1 * var(--px)) 0 var(--slot-hi);
+  clip-path: var(--notch-2);
+}
+
+.placeholder {
+  --dash: calc(var(--px) * 2);
+}
+
+.placeholder::before {
+  background:
+    repeating-linear-gradient(90deg, var(--line) 0 var(--dash), transparent var(--dash) calc(var(--dash) * 2)) top / 100% var(--px) no-repeat,
+    repeating-linear-gradient(90deg, var(--line) 0 var(--dash), transparent var(--dash) calc(var(--dash) * 2)) bottom / 100% var(--px) no-repeat,
+    repeating-linear-gradient(180deg, var(--line) 0 var(--dash), transparent var(--dash) calc(var(--dash) * 2)) left / var(--px) 100% no-repeat,
+    repeating-linear-gradient(180deg, var(--line) 0 var(--dash), transparent var(--dash) calc(var(--dash) * 2)) right / var(--px) 100% no-repeat;
+  box-shadow: none;
+}
+
+.letter {
+  position: absolute;
+  inset-block-start: var(--px);
+  inset-inline-start: var(--px);
+  min-inline-size: var(--fs-pixel-16);
+  block-size: var(--fs-pixel-16);
+  padding-inline: var(--sp-1);
+  background: var(--ink);
+  color: var(--on-ink);
+  font: var(--t-pixel-16);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.s36 .letter {
+  font-size: var(--fs-caption);
+  line-height: 1;
+  block-size: auto;
+  min-inline-size: 0;
+  padding-inline: 1px;
+}
+
+/* Forced colors drop the face and bevel */
+@media (forced-colors: active) {
+  .slot::before {
+    border: var(--px) solid CanvasText;
+  }
+
+  .letter {
+    outline: 1px solid CanvasText;
+  }
+}

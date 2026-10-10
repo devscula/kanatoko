@@ -1,0 +1,101 @@
+.breakdown {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  padding: var(--sp-3) var(--sp-4);
+  background: var(--surface-2);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font: var(--t-small);
+}
+
+.table th {
+  padding: var(--sp-1) var(--sp-2) var(--sp-1) 0;
+  font-weight: 400;
+  text-align: start;
+  vertical-align: top;
+}
+
+.table td {
+  padding: var(--sp-1) 0 var(--sp-1) var(--sp-2);
+  vertical-align: top;
+}
+
+.group th,
+.total th {
+  font-weight: 700;
+}
+
+.line th {
+  padding-inline-start: var(--sp-4);
+}
+
+.formula {
+  color: var(--muted);
+  white-space: nowrap;
+  text-align: end;
+}
+
+.num {
+  font-variant-numeric: tabular-nums;
+  text-align: end;
+  white-space: nowrap;
+}
+
+.total th,
+.total td {
+  padding-top: var(--sp-2);
+  border-top: var(--border) solid var(--line);
+  font-weight: 700;
+}
+
+.note {
+  font: var(--t-small);
+}
+
+.after {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-1);
+  font: var(--t-small);
+}
+
+.afterRow {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--sp-3);
+}
+
+.afterRow dd {
+  margin: 0;
+}
+
+.uses {
+  display: block;
+  color: var(--muted);
+}
+
+.pwp {
+  color: var(--pwp);
+}
+
+.wiki {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-1);
+  align-self: flex-start;
+  font: var(--t-small);
+}
+
+.external {
+  flex: none;
+}
+
+@media print {
+  .wiki {
+    display: none;
+  }
+}

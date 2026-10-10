@@ -1,0 +1,106 @@
+/* The track's --edge border keeps it at 3:1 or more against the surface (WCAG 1.4.11): 4.19:1 light, 3.76:1 dark */
+
+.row {
+  display: flex;
+  flex-direction: column;
+}
+
+.switch {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-4);
+  width: 100%;
+  min-height: var(--target);
+  margin: 0;
+  padding: var(--sp-1) 0;
+  border: 0;
+  background: none;
+  color: var(--ink);
+  font: var(--t-body);
+  text-align: start;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.switch:disabled {
+  color: var(--muted);
+}
+
+.label {
+  flex: 1;
+  min-width: 0;
+}
+
+.track {
+  composes: frameRound from '../../styles/pixel.module.css';
+  --frame-radius: var(--radius-pill);
+  --frame-border: var(--edge);
+  --frame-fill: var(--slot);
+  flex: none;
+  width: var(--switch-width);
+  height: var(--switch-height);
+}
+
+.track::before,
+.track::after {
+  transition: background var(--dur-segment) steps(2, end);
+}
+
+.thumb {
+  position: absolute;
+  top: calc((var(--switch-height) - var(--switch-thumb)) / 2);
+  left: calc((var(--switch-height) - var(--switch-thumb)) / 2);
+  width: var(--switch-thumb);
+  height: var(--switch-thumb);
+  background: var(--edge);
+  border-radius: var(--radius-pill);
+  transition: transform var(--dur-segment) steps(3, end);
+}
+
+.switch[aria-checked='true'] .track {
+  --frame-border: var(--enchant);
+  --frame-fill: var(--enchant);
+}
+
+.switch[aria-checked='true'] .thumb {
+  background: var(--on-ink);
+  transform: translateX(calc(var(--switch-width) - var(--switch-height)));
+}
+
+.switch:disabled .track {
+  --frame-border: var(--line);
+  --frame-fill: var(--surface-2);
+}
+
+.switch:disabled .thumb {
+  background: var(--line);
+}
+
+.description {
+  margin-top: calc(-1 * var(--sp-1));
+  padding-bottom: var(--sp-2);
+  color: var(--muted);
+  font: var(--t-small);
+  max-width: var(--measure);
+}
+
+@media (forced-colors: active) {
+  .track {
+    border: 2px solid ButtonText;
+  }
+
+  /* Repainted as Canvas, they would cover the track's Highlight */
+  .track::before,
+  .track::after {
+    display: none;
+  }
+
+  .thumb,
+  .switch[aria-checked='true'] .thumb {
+    background: ButtonText;
+  }
+
+  .switch[aria-checked='true'] .track {
+    background: Highlight;
+  }
+}

@@ -1,0 +1,100 @@
+.status,
+.cancelled {
+  composes: frame4 from '../../styles/pixel.module.css';
+  --frame-fill: var(--surface);
+  --frame-border: var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  padding: var(--sp-3) var(--card-pad);
+}
+
+.cancelled {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+}
+
+.busy {
+  flex: none;
+  font: var(--t-body);
+  font-weight: 700;
+}
+
+.bar {
+  position: relative;
+  container-type: inline-size;
+  flex: 1 1 auto;
+  min-width: 0;
+  height: var(--sp-4);
+  padding: var(--px);
+  overflow: hidden;
+  background: var(--slot);
+}
+
+.fill {
+  display: block;
+  inline-size: 0;
+  block-size: 100%;
+  background: var(--ink);
+}
+
+.bar[data-indeterminate] .fill {
+  inline-size: calc(var(--sp-4) * 4);
+  animation: shuttle 1s steps(8, end) infinite alternate;
+}
+
+@keyframes shuttle {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(calc(100cqw - var(--sp-4) * 4));
+  }
+}
+
+/* The in-app motion setting, when set, overrides the OS preference */
+@media (prefers-reduced-motion: reduce) {
+  :global(html:not([data-motion='full'])) .bar[data-indeterminate] {
+    display: none;
+  }
+}
+
+:global(html[data-motion='reduce']) .bar[data-indeterminate] {
+  display: none;
+}
+
+.percent {
+  flex: none;
+  font: var(--t-pixel-16);
+  font-variant-numeric: tabular-nums;
+}
+
+.foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-2) var(--sp-4);
+}
+
+.text {
+  flex: 1 1 14rem;
+  font: var(--t-small);
+  max-width: var(--measure);
+}
+
+@media print {
+  .status,
+  .cancelled {
+    display: none;
+  }
+}

@@ -1,0 +1,116 @@
+.infeasible {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-5);
+}
+
+.panel {
+  composes: frame4 from '../../styles/pixel.module.css';
+  --frame-fill: var(--danger-bg);
+  --frame-border: var(--danger);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  padding: var(--card-pad);
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  color: var(--danger);
+  font: var(--t-heading);
+}
+
+.icon {
+  flex: none;
+}
+
+.reasons {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  font: var(--t-body);
+}
+
+.reasons p {
+  max-width: var(--measure);
+}
+
+.suggestions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.subTitle {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font: var(--t-heading);
+}
+
+.none {
+  font: var(--t-body);
+  max-width: var(--measure);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.suggestion {
+  composes: frame4 from '../../styles/pixel.module.css';
+  --frame-fill: var(--surface);
+  --frame-border: var(--line);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-3) var(--sp-4);
+  padding: var(--card-pad);
+}
+
+.suggestionText {
+  display: flex;
+  flex: 1 1 16rem;
+  flex-direction: column;
+  gap: var(--sp-1);
+  min-width: 0;
+}
+
+.suggestionTitle {
+  /* Not bold, since it contains enchantment names */
+  font: var(--t-row);
+}
+
+.cost {
+  color: var(--xp);
+  font: var(--t-small);
+  font-weight: 700;
+  white-space: pre-wrap;
+}
+
+.costMax[data-over] {
+  color: var(--danger);
+  white-space: nowrap;
+}
+
+.costWarn {
+  display: inline-block;
+  margin-inline-end: var(--sp-1);
+  vertical-align: -0.125em;
+}
+
+@media print {
+  .suggestions button {
+    display: none;
+  }
+}
+
+.checkUses {
+  display: flex;
+  justify-content: flex-end;
+}

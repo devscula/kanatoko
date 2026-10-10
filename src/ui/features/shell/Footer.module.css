@@ -1,0 +1,44 @@
+.footer {
+  margin-top: var(--sp-8);
+  border-top: var(--border) solid var(--line);
+  color: var(--muted);
+}
+
+/* No side padding: the workbench around the footer already provides the margins */
+.inner {
+  display: flex;
+  flex-wrap: wrap;
+  padding: var(--sp-5) 0 var(--sp-6);
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-1) var(--sp-4);
+  margin-inline: calc(-1 * var(--sp-1));
+}
+
+.links button {
+  font: var(--t-small);
+  font-weight: 700;
+}
+
+/* While the result bar or a toast is showing, pad the end of the page by its height so the last controls can always be
+   scrolled out from under it (WCAG 2.4.11). */
+.footer {
+  padding-bottom: max(var(--result-bar-cover, 0px), var(--toast-bottom, 0px));
+}
+
+:global(html[data-result-bar]) .footer {
+  padding-bottom: max(var(--result-bar-cover, var(--bar-height)), var(--toast-bottom, 0px));
+}
+
+@media print {
+  .footer {
+    padding-bottom: 0;
+  }
+
+  .links {
+    display: none;
+  }
+}

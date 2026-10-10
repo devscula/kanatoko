@@ -1,0 +1,62 @@
+/*
+ * Stepped-corner frames for use through composes. The corners are cut on pseudo-elements so that the focus outline is
+ * not clipped. Set --frame-fill, --frame-border and --frame-width (0 for no border) to override the defaults below.
+ */
+
+.frame2,
+.frame4,
+.frameRound {
+  position: relative;
+  isolation: isolate;
+}
+
+.frame2::before,
+.frame2::after,
+.frameRound::before,
+.frameRound::after,
+.frame4::before,
+.frame4::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.frameRound::before,
+.frame2::before,
+.frame4::before {
+  inset: 0;
+  background: var(--frame-border, var(--line));
+}
+
+.frameRound::after,
+.frame2::after,
+.frame4::after {
+  inset: var(--frame-width, 2px);
+  background: var(--frame-fill, var(--surface));
+}
+
+.frame2::before {
+  clip-path: var(--notch-2);
+}
+
+.frame4::before {
+  clip-path: var(--notch-4);
+}
+
+.frame4::after {
+  clip-path: var(--notch-2);
+}
+
+/* The element gets the radius too, so that the focus outline follows the curve */
+.frameRound {
+  border-radius: var(--frame-radius, var(--radius-btn));
+}
+
+.frameRound::before {
+  border-radius: var(--frame-radius, var(--radius-btn));
+}
+
+.frameRound::after {
+  border-radius: calc(var(--frame-radius, var(--radius-btn)) - var(--frame-width, 2px));
+}

@@ -1,0 +1,29 @@
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+}
+
+.lead {
+  color: var(--muted);
+  font: var(--t-small);
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.item {
+  display: grid;
+  grid-template-columns: var(--sp-6) minmax(0, 1fr);
+  align-items: baseline;
+  gap: var(--sp-2);
+  max-width: var(--measure);
+}
+
+.no {
+  font: var(--t-pixel-16);
+  text-align: center;
+}

@@ -1,0 +1,79 @@
+.gauge {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-1);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+}
+
+/* On narrow cards the cells shrink evenly instead of scrolling sideways */
+.meter {
+  display: grid;
+  flex: 0 1 350px;
+  grid-template-columns: repeat(39, minmax(0, 8px));
+  gap: 1px;
+  min-width: 0;
+  padding: var(--px);
+  background: var(--slot);
+}
+
+.cell {
+  height: var(--sp-3);
+}
+
+.cell[data-filled] {
+  background: var(--xp);
+}
+
+.gauge[data-over] .cell {
+  background: var(--danger);
+}
+
+.value {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-1);
+  color: var(--muted);
+  font: var(--t-pixel-16);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.gauge[data-over] .value {
+  color: var(--danger);
+}
+
+.warn {
+  color: var(--danger);
+}
+
+.note {
+  color: var(--muted);
+  font: var(--t-small);
+}
+
+@media (forced-colors: active) {
+  .meter {
+    border: 1px solid CanvasText;
+  }
+
+  .cell[data-filled],
+  .gauge[data-over] .cell {
+    background: CanvasText;
+  }
+}
+
+@media print {
+  .meter {
+    display: none;
+  }
+
+  .value {
+    font: var(--t-small);
+    color: #000;
+  }
+}

@@ -1,0 +1,96 @@
+.workbench {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--sp-6);
+  max-width: calc(var(--column-max) + 2 * var(--gutter));
+  margin: 0 auto;
+  padding: var(--sp-4) var(--gutter) 0;
+}
+
+.left,
+.center {
+  min-width: 0;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.workbench[data-first] {
+  max-width: var(--workbench-max);
+}
+
+@media (min-width: 880px) {
+  .workbench:not([data-first]) {
+    grid-template-columns: var(--col-left-2) minmax(0, 1fr);
+    align-items: start;
+    gap: 16px;
+    max-width: var(--workbench-max);
+    padding: 0 16px;
+  }
+
+  .workbench:not([data-first]) > .left,
+  .workbench:not([data-first]) > .center {
+    padding: 16px 12px;
+  }
+}
+
+@media (min-width: 1360px) {
+  .workbench:not([data-first]) {
+    grid-template-columns: var(--col-left-3) minmax(0, 1fr);
+    gap: 24px;
+    padding: 0 24px;
+  }
+}
+
+/* data-fixed: each column scrolls on its own inside a viewport-high #root. Short viewports scroll the whole page instead
+   and never set it. */
+:global(#root):has(> .workbench[data-fixed]) {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+.workbench[data-fixed] {
+  flex: 1 1 auto;
+  width: 100%;
+  min-height: 0;
+  box-sizing: border-box;
+  align-items: stretch;
+}
+
+.workbench[data-fixed] > .left,
+.workbench[data-fixed] > .center {
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+}
+
+.workbench[data-fixed] > section:focus-visible {
+  outline: var(--focus-width, 2px) solid var(--focus);
+  outline-offset: -2px;
+}
+
+@media print {
+  .left {
+    display: none;
+  }
+
+  .workbench,
+  .workbench[data-fixed] {
+    display: block;
+    max-width: none;
+    height: auto;
+    padding: 0;
+  }
+
+  :global(#root):has(> .workbench[data-fixed]) {
+    display: block;
+    height: auto;
+    overflow: visible;
+  }
+}

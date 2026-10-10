@@ -1,0 +1,61 @@
+.selectWrap {
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+}
+
+.selectWrap::before,
+.selectWrap::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.selectWrap::before {
+  inset: 0;
+  background: var(--edge);
+  border-radius: var(--radius-btn);
+}
+
+.selectWrap::after {
+  inset: var(--border);
+  background: var(--surface);
+  border-radius: calc(var(--radius-btn) - var(--border));
+}
+
+.select {
+  min-height: var(--target);
+  margin: 0;
+  padding: 0 calc(var(--sp-4) + var(--sp-4)) 0 var(--sp-3);
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  font: var(--t-small);
+  font-weight: 700;
+  appearance: none;
+  cursor: pointer;
+}
+
+.select option {
+  background: var(--surface);
+  color: var(--ink);
+}
+
+.select[aria-disabled='true'] {
+  color: var(--muted);
+}
+
+@media (pointer: fine) {
+  .select {
+    min-height: var(--target-fine);
+  }
+}
+
+.chevron {
+  position: absolute;
+  right: var(--sp-2);
+  pointer-events: none;
+  transform: rotate(90deg);
+}

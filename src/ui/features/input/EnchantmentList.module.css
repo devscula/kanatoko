@@ -1,0 +1,305 @@
+.list {
+  container: enchlist / inline-size;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  /* Lines below the first align with the name: gap + checkbox + gap */
+  --indent: calc(var(--sp-3) + var(--sp-5) + var(--sp-3));
+}
+
+.rows {
+  display: flex;
+  flex-direction: column;
+  gap: var(--px);
+}
+
+/* Conflict groups */
+.groupItem {
+  margin-block: var(--sp-2);
+}
+
+.groupItem:first-child {
+  margin-top: 0;
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-1);
+  padding-left: var(--sp-2);
+  border-left: var(--border) dotted var(--edge);
+}
+
+.groupHeading {
+  padding-block: var(--sp-1);
+  color: var(--muted);
+  font: var(--t-small);
+  font-weight: 700;
+}
+
+.row {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-1);
+  min-height: var(--row-min);
+  padding: var(--sp-1) var(--sp-3) var(--sp-1) 0;
+  border-left: var(--rail) solid transparent;
+  background: var(--surface);
+}
+
+.row[data-selected] {
+  border-left-color: var(--enchant);
+  background: var(--enchant-bg);
+}
+
+.head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  column-gap: var(--sp-3);
+}
+
+/* The real checkbox sits invisibly over the box and takes focus and input; the label widens the hit area */
+.input {
+  position: absolute;
+  top: calc(var(--row-min) / 2 - var(--sp-5) / 2);
+  left: var(--sp-3);
+  width: var(--sp-5);
+  height: var(--sp-5);
+  margin: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.hit {
+  flex: 1 1 100%;
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  min-height: calc(var(--row-min) - 2 * var(--sp-1));
+  padding-left: var(--sp-3);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.row[data-readonly] .hit {
+  cursor: default;
+}
+
+.box {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: var(--sp-5);
+  height: var(--sp-5);
+}
+
+.box::before,
+.box::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+}
+
+.box::before {
+  inset: 0;
+  background: var(--edge);
+  clip-path: var(--notch-2);
+}
+
+.box::after {
+  inset: var(--border);
+  background: var(--surface);
+}
+
+.checkMark {
+  visibility: hidden;
+  color: var(--on-ink);
+}
+
+.input:checked + .hit .box::before,
+.input:checked + .hit .box::after {
+  background: var(--enchant);
+}
+
+.input:checked + .hit .checkMark {
+  visibility: visible;
+}
+
+.input:focus-visible + .hit .box {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.row:not([data-selected], [data-readonly]) .hit:hover .box::after {
+  background: var(--surface-2);
+}
+
+.row[data-readonly] .box::before,
+.row[data-readonly] .input:checked + .hit .box::before,
+.row[data-readonly] .input:checked + .hit .box::after {
+  background: var(--muted);
+}
+
+.row[data-readonly] .name {
+  color: var(--muted);
+}
+
+.names {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding-block: var(--sp-1);
+}
+
+.name {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 var(--sp-1);
+  font: var(--t-row);
+}
+
+.english {
+  color: var(--muted);
+  font: var(--t-caption);
+}
+
+.curse {
+  color: var(--danger);
+}
+
+.levelText {
+  flex: none;
+  margin-left: auto;
+  font: var(--t-pixel-16);
+}
+
+.chips {
+  padding: var(--sp-1) 0 var(--sp-2) var(--indent);
+}
+
+.row:not([data-selected]) .chips {
+  display: none;
+}
+
+/* Wide lists: chips sit on the right, dropping to the next line when they don't fit beside the name */
+@container enchlist (min-width: 400px) {
+  /* The row wraps at its min-content width: the unbroken name or the longest English word */
+  .hit {
+    flex: 1 1 0;
+  }
+
+  .name > :first-child {
+    white-space: nowrap;
+  }
+
+  .row .chips,
+  .row:not([data-selected]) .chips {
+    display: flex;
+    flex-wrap: nowrap;
+    margin-left: auto;
+    padding: var(--sp-1) 0;
+  }
+
+  .levelText {
+    display: none;
+  }
+}
+
+/* From 880px the left column can be under 400px wide, but chips still go on the right there: same rules as above */
+@media (min-width: 880px) {
+  .hit {
+    flex: 1 1 0;
+  }
+
+  .name > :first-child {
+    white-space: nowrap;
+  }
+
+  .row .chips,
+  .row:not([data-selected]) .chips {
+    display: flex;
+    flex-wrap: nowrap;
+    margin-left: auto;
+    padding: var(--sp-1) 0;
+  }
+
+  .levelText {
+    display: none;
+  }
+}
+
+/* Lines below the first */
+.note {
+  margin-top: calc(-1 * var(--sp-2));
+  padding-bottom: var(--sp-1);
+  padding-left: var(--indent);
+  color: var(--muted);
+  font: var(--t-small);
+}
+
+.curses {
+  margin-top: var(--sp-1);
+}
+
+.curseRows {
+  padding-top: var(--sp-2);
+}
+
+.none {
+  color: var(--muted);
+  font: var(--t-small);
+}
+
+@media (forced-colors: active) {
+  .row[data-selected] {
+    border-left-color: Highlight;
+  }
+
+  .box {
+    border: 2px solid ButtonText;
+  }
+
+  .checkMark {
+    color: ButtonText;
+  }
+}
+
+@media (pointer: fine) {
+  .list {
+    --row-min: 40px;
+    --chip: 32px;
+    --chip-gap: 4px;
+  }
+
+  .name {
+    font-size: var(--fs-body);
+    line-height: var(--lh-small);
+  }
+
+  .names {
+    padding-block: 0;
+  }
+
+  .row {
+    padding-block: 2px;
+  }
+
+  @container enchlist (min-width: 440px) {
+    .names {
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: baseline;
+      column-gap: var(--sp-2);
+    }
+  }
+}
+
+.row[data-locked] .name,
+.row[data-blocked] .name {
+  color: var(--muted);
+}

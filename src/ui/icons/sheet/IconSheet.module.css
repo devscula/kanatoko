@@ -1,0 +1,156 @@
+.page {
+  max-inline-size: var(--page-max);
+  margin-inline: auto;
+  padding: var(--sp-6) var(--gutter) var(--sp-8);
+}
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-4);
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  font: var(--t-heading);
+}
+
+.note {
+  flex-basis: 100%;
+  max-inline-size: var(--measure);
+  font: var(--t-small);
+  color: var(--muted);
+}
+
+.themes {
+  display: flex;
+  gap: var(--px);
+  padding: var(--px);
+  background: var(--slot);
+}
+
+.theme {
+  min-block-size: var(--target);
+  padding-inline: var(--sp-4);
+  border: var(--border) solid transparent;
+  background: transparent;
+  color: var(--ink);
+  font: var(--t-body);
+  cursor: pointer;
+}
+
+.theme[aria-pressed='true'] {
+  border-color: var(--edge);
+  background: var(--surface);
+  font-weight: 700;
+}
+
+.section {
+  margin-block-start: var(--sp-7);
+}
+
+.sectionTitle {
+  margin-block-end: var(--sp-4);
+  font: var(--t-heading);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(calc(var(--sp-8) * 3.5), 1fr));
+  gap: var(--sp-3);
+}
+
+.card {
+  composes: frame4 from '../../styles/pixel.module.css';
+  --frame-fill: var(--surface);
+  --frame-border: var(--line);
+  display: grid;
+  gap: var(--sp-3);
+  padding: var(--sp-3) var(--sp-4) var(--sp-4);
+}
+
+.cardHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 var(--sp-2);
+}
+
+.number {
+  flex: none;
+  font: var(--t-pixel-16);
+  white-space: nowrap;
+}
+
+.key {
+  font: var(--t-caption);
+  color: var(--muted);
+}
+
+/* Keys are code identifiers, so use a monospace font in which underscores stay visible */
+code.key {
+  font-family: monospace;
+}
+
+.sizes {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--sp-4);
+}
+
+.itemRow {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--sp-3);
+}
+
+.rowLabel {
+  flex: none;
+  inline-size: 3em;
+  font: var(--t-caption);
+  color: var(--muted);
+}
+
+.slotRows {
+  display: grid;
+  gap: var(--sp-3);
+}
+
+.inventory {
+  composes: frame4 from '../../styles/pixel.module.css';
+  --frame-fill: var(--surface);
+  --frame-border: var(--line);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-1);
+  padding: var(--sp-4);
+}
+
+.tableScroll {
+  overflow-x: auto;
+}
+
+.slotTable {
+  border-collapse: collapse;
+}
+
+.slotTable th,
+.slotTable td {
+  padding: var(--sp-2) var(--sp-4) var(--sp-2) 0;
+  text-align: start;
+  vertical-align: middle;
+}
+
+.slotTable thead th {
+  font: var(--t-small);
+  color: var(--muted);
+}
+
+.slotTable tbody th {
+  display: grid;
+  gap: var(--sp-1);
+}
