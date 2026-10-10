@@ -4,6 +4,8 @@ Kanatoko is a web app that finds the order of anvil steps that puts a set of enc
 for the fewest experience levels. It covers Java Edition 26.3 and Bedrock Edition 26.50–26.52 and runs entirely in the browser;
 your input is never sent anywhere. The interface is in Japanese and English.
 
+Use it at [devscula.github.io/kanatoko](https://devscula.github.io/kanatoko/).
+
 ## Features
 
 - Pick an item and the enchantments you want, or merge books into one book. Incompatible enchantments are pointed out, and one
