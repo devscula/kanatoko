@@ -72,6 +72,9 @@ keep the file names above. Add `--check` to compare with the committed files wit
 
 ## Credits and licenses
 
+The source code is released under the [MIT License](LICENSE). The images and fonts are not covered by it; their terms are
+listed below.
+
 - Minecraft item textures and the enchantment glint are © Mojang Studios, taken from the Java Edition client and used under the
   [Minecraft Usage Guidelines](https://www.minecraft.net/en-us/usage-guidelines).
 - The shield, carved pumpkin and creeper head images are inventory renders from [minecraft.wiki](https://minecraft.wiki/).
