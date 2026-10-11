@@ -80,6 +80,39 @@ describe('AppHeader', () => {
     await userEvent.click(within(screen.getByRole('radiogroup', { name: '言語' })).getByRole('radio', { name: 'English' }))
     expect(state().prefs.lang).toBe('en')
   })
+
+  it('goes back to the empty start page from the logo link, with undo', async () => {
+    act(() => state().loadExample())
+    render(<AppHeader />)
+    const home = screen.getByRole('link', { name: 'Kanatoko' })
+    expect(home).toHaveAttribute('href', import.meta.env.BASE_URL)
+    await userEvent.click(home)
+    expect(state().input.item).toBeNull()
+    // The toast's last action is Undo
+    act(() => state().toast!.actions.at(-1)!.run())
+    expect(state().input.item).toBe('boots')
+  })
+
+  it('leaves a shared plan for the empty start page from the logo link', async () => {
+    act(() => state().loadExample())
+    act(() =>
+      state().showSharedPlan({ input: { ...DEFAULT_INPUT, item: 'sword', wanted: { mending: 1 } }, settings: { edition: 'java', levelCap: 39, objective: 'levels', rename: false }, hash: '#v=1' }),
+    )
+    render(<AppHeader />)
+    await userEvent.click(screen.getByRole('link', { name: 'Kanatoko' }))
+    expect(state().share.active).toBe(false)
+    expect(state().input.item).toBeNull()
+  })
+
+  it('keeps the input when the logo link is opened in a new tab', () => {
+    act(() => state().loadExample())
+    render(<AppHeader />)
+    const home = screen.getByRole('link', { name: 'Kanatoko' })
+    fireEvent.click(home, { ctrlKey: true })
+    fireEvent.click(home, { metaKey: true })
+    fireEvent.click(home, { shiftKey: true })
+    expect(state().input.item).toBe('boots')
+  })
 })
 
 describe('pressing a read-only input', () => {

@@ -1,5 +1,6 @@
 // The logo is the favicon file itself, so the tab and the header always show the same picture.
 
+import type { MouseEvent } from 'react'
 import type { Lang } from '../../../data/types.ts'
 import { Button, IconButton } from '../../components/base/Button.tsx'
 import { SegmentedControl } from '../../components/base/SegmentedControl.tsx'
@@ -23,14 +24,26 @@ export function AppHeader() {
   const redo = useAppStore((s) => s.redo)
   const openSettings = useAppStore((s) => s.openSettings)
   const openKeys = useAppStore((s) => s.openKeys)
+  const exitSharedPlan = useAppStore((s) => s.exitSharedPlan)
+  const clearAllInput = useAppStore((s) => s.clearAllInput)
   const full = useMediaQuery('(min-width: 1440px)')
+
+  // The empty input is the app's start page. Modified clicks still open the site in a new tab or window.
+  const startOver = (event: MouseEvent<HTMLAnchorElement>) => {
+    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return
+    event.preventDefault()
+    exitSharedPlan()
+    clearAllInput()
+  }
 
   return (
     <header className={styles.header}>
       <div className={styles.inner}>
         <h1 className={styles.brand}>
-          <img src={`${import.meta.env.BASE_URL}favicon.svg`} width={32} height={32} alt="" className={styles.logo} />
-          <span className={styles.name}>{t('app.name')}</span>
+          <a href={import.meta.env.BASE_URL} className={styles.home} onClick={startOver}>
+            <img src={`${import.meta.env.BASE_URL}favicon.svg`} width={32} height={32} alt="" className={styles.logo} />
+            <span className={styles.name}>{t('app.name')}</span>
+          </a>
         </h1>
         <div className={styles.controls}>
           {wide ? (
