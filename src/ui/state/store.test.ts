@@ -267,6 +267,19 @@ describe('storage actions in settings', () => {
     expect(ja.text(get().toast!.message)).toBe('ひとつ前の入力に戻しました')
   })
 
+  it('keeps the backup and records nothing when clearing an input that is already empty', () => {
+    const { get } = setup()
+    get().loadExample()
+    get().clearAllInput()
+    get().dismissToast()
+    const past = get().history.past
+    get().clearAllInput()
+    expect(get().history.past).toBe(past)
+    expect(get().toast).toBeNull()
+    get().restoreBackup()
+    expect(get().input.item).toBe('boots')
+  })
+
   it('shows the storage banner only once when storage cannot be written', () => {
     const storage = wrapStorage(memoryStorage({}, { failWrites: true }))
     const store = createAppStore({ storage })

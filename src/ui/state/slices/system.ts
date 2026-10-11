@@ -1,4 +1,5 @@
 import { msg } from '../../i18n/text.ts'
+import { isInputEmpty } from '../convert.ts'
 import { readBackup, writeBackup } from '../persistIo.ts'
 import type { StoreDeps, SliceCreator } from '../store.ts'
 import { DEFAULT_INPUT } from '../types.ts'
@@ -102,6 +103,8 @@ export const createSystemSlice =
       },
 
       clearAllInput() {
+        // Clearing an already empty input would overwrite the backup of the last real input with nothing
+        if (isInputEmpty(get().input)) return
         get().saveBackup()
         const committed = get().commit(msg('history.clear'), (s) => ({ input: { ...DEFAULT_INPUT, rename: s.input.rename } }))
         if (committed) get().showToast(msg('toast.cleared'), { undo: true })
